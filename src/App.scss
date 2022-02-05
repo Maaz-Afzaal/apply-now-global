@@ -1,0 +1,43 @@
+@import './assets/styles/header';
+@import './assets/styles/_footer.scss';
+@import './assets/styles/_countryDropDown.scss';
+@import './assets/styles/_universityPage.scss';
+@import './assets/styles/_card.scss';
+@import './assets/styles/faqs';
+@import './assets/styles/_blogs.scss';
+@import './assets/styles/homeHeader';
+@import './assets/styles/lines';
+@import './assets/styles/home';
+@import './assets/styles/carousel';
+@import './assets/styles/events';
+@import './assets/styles/countryPage';
+@import './assets/styles/coursesPage';
+
+
+.App {
+  text-align: center;
+  max-width: 100vw;
+  overflow: hidden;
+}
+.gradientButton{
+  background-image: linear-gradient(to right,#77397eff , #eda022ff);
+  border:none;
+  border-radius: 4px;
+  color:white;
+  font-weight: 600;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.verticalLine{
+  background-color:#e0dfe0ff;
+  min-width: 1px;
+  align-self: center;
+  // min-height: 70%;
+}
+.blurImage{
+  width:100vw;
+  filter: blur(5px);
+  // filter: brightness(30%);
+  -webkit-filter: blur(5px);
+  // -webkit-filter: brightness(30%);
+}

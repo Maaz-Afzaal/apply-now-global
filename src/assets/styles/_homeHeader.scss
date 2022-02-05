@@ -1,0 +1,140 @@
+.homeHeader{
+    .image{
+        position: relative;
+        width:100vw;
+        height: 97vh;
+        .absolteImage{
+            img{
+                // position: absolute;
+                // z-index: -2;
+                left: 0;
+                top: 0;
+                // width: 10%;
+            }
+        }
+        .content{
+            // position: absolute;
+            // top:40%;
+            .courses{
+                height: 120px;
+                padding: 30px 20px;
+                position: absolute;
+                top:30%;
+                z-index: 1;
+                width: 70vw;
+                background:white;
+                left:15%;
+                border-radius:6px;
+                box-shadow: 3px 2px 6px rgb(128, 128, 128);
+                display: flex;
+                justify-content: space-between;
+                .one{
+                    margin:20px;
+                    .text{
+                        margin-top:auto;
+                    }
+                    .more{
+                        img{
+                            margin-top: 25px;
+                            height: 20px;
+                        }
+                       
+                    }
+                    .logo{
+                        img{
+                            max-height: 50px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    
+                }
+            }
+            .searchBox{
+                position: absolute;
+                top:calc(30% + 100px);
+                padding-top: 40px;
+                padding-left: 40px;
+                padding-bottom: 20px;
+                background:white;
+                z-index: 0;
+                width: 80vw;
+                left:10%;
+                border-radius:6px;
+                box-shadow: 3px 2px 6px rgb(128, 128, 128);
+                display: flex;
+                justify-content: space-between;
+                .searchForm{
+                    .radioButtons{
+                        margin-bottom: 20px;
+                        padding-left: 10px;
+                        display: flex;
+                        justify-content: start;
+                        color: #88959bff;
+                        font-weight: 700;
+                        input{
+                            align-self: center;
+                        }
+                        .active{
+                            color:red
+                        }
+                        input[type='radio'] { 
+                            accent-color: #77397eff; }
+                        #radioInput1:checked ~label{
+                            color: #77397eff;
+                        }
+                        #radioInput2:checked ~label{
+                            color: #77397eff;
+                        }
+                        label{
+                            align-self: center;
+                            margin:0 8px;
+                            padding: 0;
+                        }
+                    }
+                    .otherInputs{
+                        // padding:10px 0px 10px 20px;
+                        // background-color: yellow;
+                        select{
+                            // width:'150px';
+                            border:'1px #88959bff solid';
+                            border-radius: 4px;
+                            background:white;
+                            // margin-right:'10px';
+                            width: 100%;
+                            min-height: 100%;
+                            font-size: 16px;
+                            padding: 0px 3px;
+
+                            }
+                        .level{
+                            min-height: 32px;
+                            min-width: 12vw;
+                        }
+                        .searchCourseInput{
+                            
+                            // margin-left:'10px';
+                            padding-left: 10px;
+                            input{
+                                width: 35vw;
+                                height: 38px;
+                                // border:'0px #88959bff solid';
+                                border-radius: 4px;
+                                padding: 15px 3px;
+                                background:white;
+                            }
+                        }
+                        button{
+                            height: 38px;
+                            margin-left:10px;
+                            width: 12vw;
+                        }
+                    }
+
+                    
+                }
+               
+            }
+        }
+    }
+    
+}

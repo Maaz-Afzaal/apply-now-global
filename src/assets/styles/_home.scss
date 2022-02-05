@@ -1,0 +1,144 @@
+.home{
+    .homeBody{
+        .whatToStudy{
+            // padding:3vw 5vw;
+            background-color: #efefefff;
+            width: 100vw;
+            .heading{
+                
+                .text{
+                    font-size: 44px;
+                    line-height: 48px;
+                    font-weight: 900;
+                }
+                .line{
+                    display: flex;
+                    margin: 2rem 0;
+                    justify-content: center;
+                }
+            }
+            .whatToStudyCard{
+                display: flex;
+                justify-content: space-between;
+                padding: 2vw 8vw;
+                // background-color: black;
+                .fullCard{
+                    width:30%;
+                }
+                .yellowCard{
+                    // background-color: black;
+                    border-bottom: 3px #f7a805ff solid;
+                    margin:2rem 0rem;
+                    background-color: white;
+                    padding: 0;
+                    .heading{
+                        display: flex;
+                        width: 100%;
+                        background-color: #f7a805ff;
+                        padding-left: 1rem;
+                        color: white;
+                        align-items: center;
+                        margin-bottom: 1rem ;
+                        .logo{
+                            margin-right: 1.5rem;
+                            width: 2rem;
+                        }
+                        .text{
+                            font-size: 18px;
+                        }
+                    }
+                    .courses{
+                        
+                        text-align: start;
+                    }
+                    .viewAll{
+                        font-weight: 600;
+                        margin-bottom: 1rem;
+                        margin-right: 0.5rem;
+                        display: flex;
+                        justify-content: end;
+                    }
+                }
+                .purpleCard{
+                    border-bottom: 3px #6a2d87ff solid;
+                    margin:2rem 0rem;
+                    background-color: white;
+                    padding: 0;
+                    .heading{
+                        display: flex;
+                        width: 100%;
+                        background-color: #6a2d87ff;
+                        padding-left: 1rem;
+                        color: white;
+                        align-items: center;
+                        margin-bottom: 1rem;
+                        .logo{
+                            margin-right: 1.5rem;
+                            width: 2rem;
+                        }
+                        .text{
+                            font-size: 18px;
+                        }
+                     
+                    }
+                    .courses{
+                        
+                        text-align: start;
+                    }
+                    .viewAll{
+                        font-weight: 600;
+                        margin-bottom: 1rem;
+                        margin-right: 0.5rem;
+                        display: flex;
+                        justify-content: end;
+                    }
+                }
+            }
+            .desitnations{
+                padding: 2vw 8vw 4vw 8vw;
+            }
+            .topRankedUniversities{
+                padding: 2vw 8vw 4vw 8vw;
+                background-color:#6a2d87ff ;
+                .heading{
+                    color: white;
+                }
+                .line{
+                    display: flex;
+                    justify-content: start;
+                    align-items: flex-start;
+                    margin-top: 0.5rem;
+                    margin-bottom: 3rem;
+                }
+            }
+            .topPathwayProviders{
+                padding: 2vw 8vw 4vw 8vw;
+                background-color: white;
+                .line{
+                    display: flex;
+                    justify-content: start;
+                    align-items: flex-start;
+                    margin-top: 0.5rem;
+                    margin-bottom: 3rem;
+                }
+            }
+            .connectWithExpert{
+                max-height: 750px;
+                overflow: hidden;
+                .background{
+                    position: relative;
+                    max-width: 100vw;
+                    // max-height: 75vh;
+                    img{
+                        // height: 100%;
+                    }
+                    .other{
+                        top:3vw;
+                        width: 100%;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+    }
+}
