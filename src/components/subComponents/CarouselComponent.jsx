@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useState } from "react/cjs/react.development";
+import { Button } from "reactstrap";
 
-
-const News =(props)=>{
+const CarouselComponent =(props)=>{
     const [loading,setLoading]=useState(false);
     const responsive = {
         superLargeDesktop: {
@@ -25,15 +25,32 @@ const News =(props)=>{
           items: 1
         }
       };
-
+      const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
+        const { carouselState: { currentSlide } } = rest;
+        return (
+          <div className="carousel-button-group" style={{position:"absolute",bottom:"1%",right:"0%",padding:"3px"}}>
+              <div className="d-flex">
+                <Button className={currentSlide === 0 ? 'disable' : ''} onClick={() => previous()} 
+                style={{background:"none",borderRadius:"50%",border:`1px ${props.color} solid`,color:props.color,fontSize:"20px",fontWeight:"600",width:"2rem",height:"2rem",
+                display:"flex",justifyContent:"center",alignItems:"center",marginRight:"5px"}}>{'<'}</Button>
+                <Button onClick={() => next()} style={{background:"none",borderRadius:"50%",border:`1px ${props.color} solid`,color:props.color,fontSize:"20px",fontWeight:"600",width:"2rem",height:"2rem",
+                display:"flex",justifyContent:"center",alignItems:"center",marginLeft:"5px"}}>{'>'}</Button>
+                {/* <Button onClick={() => goToSlide(currentSlide + 1)}> Go to any slide </Button> */}
+              </div>
+              
+          </div>
+        );
+      };
     return (
-      <div className="carouselComponent" >
+      <div className="carouselComponent mt-3" >
         <div className="carouselBody">
      
-              <Carousel responsive={responsive}>
+              <Carousel responsive={responsive}
+              arrows={false} customButtonGroup={<ButtonGroup />}
+              >
                 {props.data.map((item, indx) => {
-                  return (
-                    <div className="m-0 carouselCard " key={indx} >
+                  return (  
+                    <div className="m-0 carouselCard " key={indx} style={{height:`calc(${props.height} + 75px)`}}>
                         <div className="h-100">
                             {console.log(item)}
                         <img
@@ -59,4 +76,4 @@ const News =(props)=>{
   }
 
 
-export default News;
+export default CarouselComponent;

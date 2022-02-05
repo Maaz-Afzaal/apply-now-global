@@ -5,7 +5,7 @@ import Footer from './Footer';
 import HomeHeader from './subComponents/HomeHeader';
 import Lines from './subComponents/Lines';
 // import CarouselComponent from './subComponents/Carousel';
-import News from './subComponents/CarouselComponent';
+import CarouselComponent from './subComponents/CarouselComponent';
 
 
 import computerScienceLogo from '../assets/images/home/computerScience.png';
@@ -246,7 +246,7 @@ const Home=()=>{
                             
                         </div>
                         <div className='destinationBody w-100'>
-                                <News data={destinationData} itemsToShow={6} height={"200px"}/>
+                                <CarouselComponent data={destinationData} itemsToShow={6} height={"200px"} color={"black"}/>
                                 {/* <CarouselComponent items={destinationCarousel} image={socialLogo}/> */}
                         </div>
                     </div>
@@ -270,7 +270,7 @@ const Home=()=>{
                             </div>
                         </div>
                         <div className='topRankedUniversitiesBody w-100'>
-                            <News data={topRankedUniversities} itemsToShow={7} height={"200px"}/>
+                            <CarouselComponent data={topRankedUniversities} itemsToShow={7} height={"200px"} color={"white"}/>
                         </div>
                     </div>
                     <div className='topPathwayProviders row'>
@@ -293,7 +293,7 @@ const Home=()=>{
                             </div>
                         </div>
                         <div className='topRankedUniversitiesBody w-100'>
-                            <News data={pathwayProviders} itemsToShow={7} height={"100px"}/>
+                            <CarouselComponent data={pathwayProviders} itemsToShow={7} height={"100px"} color={"black"}/>
                         </div>
                     </div>
                     <div className='connectWithExpert'>
@@ -313,7 +313,7 @@ const Home=()=>{
                                 <div className='image'>
                                     <img src={expertChat1} alt="chat with expert" className='img img-fluid'/>
                                 </div>
-                                <button className='gradientButton mb-1 mt-3 ml-4 mr-4' style={{height:'35px',fontWeight:'600',color:'white'}}>
+                                <button className='gradientButton mb-2 mt-4 ml-4 mr-4' style={{height:'35px',fontWeight:'600',color:'white'}}>
                                     IN-PERSON COUNSELLING
                                 </button>
                                 <div className='text ml-3 mr-3 mt-1'>
@@ -324,7 +324,7 @@ const Home=()=>{
                                 <div className='image'>
                                     <img src={expertChat2} alt="chat with expert" className='img img-fluid'/>
                                 </div>
-                                <button className='gradientButton mb-1 mt-3 ml-4 mr-4' style={{height:'35px',fontWeight:'600',color:'white'}} >
+                                <button className='gradientButton mb-2 mt-4 ml-4 mr-4' style={{height:'35px',fontWeight:'600',color:'white'}} >
                                     ONLINE COUNSELLING
                                 </button>
                                 <div className='text ml-3 mr-3 mt-1'>
