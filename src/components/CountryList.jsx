@@ -27,12 +27,12 @@ const CountryDropDown=(props)=>{
     }
     return(
         <>
-        <Dropdown isOpen={props.dropdownOpen} toggle={toggle} className="countryDropDown" onMouseEnter={open}>
-        <DropdownToggle className="header" caret style={{background:'none',border:'none',color:'#6a2d87ff'}}  >
+        <Dropdown isOpen={props.dropdownOpen} toggle={toggle} className="countryDropDown " onMouseEnter={open}>
+        <DropdownToggle className="textLink" caret style={{background:'none',border:'none',color:'#6a2d87ff'}}  >
           COUNTRY 
         </DropdownToggle>
-        <DropdownMenu style={{width:'100vw',background:"transparent",border:"none"}} className="body p-0">
-            <div className="row d-flex" style={{width:"70vw",marginLeft:"15vw",background:"#6a2e88ff",borderRadius:"3px"}}>
+        <DropdownMenu style={{width:"67vw",marginRight:"-1.8vw",background:"#6a2e88ff",borderRadius:"3px"}} className="body p-0 ">
+            <div className="row d-flex " >
      
             <div className="col-3">
                 <DropdownItem disabled className="bold">Europe</DropdownItem>

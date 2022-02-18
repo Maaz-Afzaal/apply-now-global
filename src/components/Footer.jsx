@@ -19,7 +19,7 @@ const Footer=()=>{
     return (
         <>
             <div className='footer w-100'>
-                <div className='top row'>
+                <div className='top row d-none d-md-flex'>
                     <div className='col-3'>
                         <div className='h3'>
                             STUDY ABROAD WITH APPLY NOW GLOBAL
@@ -76,7 +76,7 @@ const Footer=()=>{
                         
                     </div>
                 </div>
-                <div className='top row'>
+                <div className='top row d-none d-md-flex'>
                     <div className='col-3'>
                         <div className='h3'>
                             FOLLOW US
@@ -110,31 +110,28 @@ const Footer=()=>{
                     </div>
                 </div>
                 <div className='bot row border border-light'>
-                        <div className='col-3'>
-                        &#169;Copyright 2022 ApplyNowGlobal 
+                        <div className='col-12 col-md-6 text-left mb-3 mb-md-0'>
+                        &#169;Copyright 2022 ApplyNowGlobal | Developed by EXTENSASOL
                         </div>
-                        <div className='d-flex col-3 offset-6'>
-                            <div>
+                        <div className='col-12 col-md-6'>
+                            <div className='d-flex w-100 justify-content-end row'>
+                            <div style={{borderRight:"1px solid white",}} className=' col-12 col-md-2 text-center'>
                                 Disclaimer
                             </div>
-                            <div className='verticalLine'>
-
-                            </div>
-                            <div>
+                            
+                            <div style={{borderRight:"1px solid white",}} className='  col-12 col-md-2 text-center'>
                                 Privacy Policy
                             </div>
-                            <div className='verticalLine'>
-                                
-                            </div>
-                            <div>
+                            
+                            <div style={{borderRight:"1px solid white",}} className='col-12 col-md-2 text-center'> 
                                 Terms of Use
                             </div>
-                            <div className='verticalLine'>
-                                
-                            </div>
-                            <div>
+                           
+                            <div style={{borderRight:"0px solid white",}} className='col-12 col-md-2 text-left pl-3'>
                                 Blog
                             </div>
+                            </div>
+                            
                         </div>
                 </div>
             </div>

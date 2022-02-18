@@ -396,7 +396,7 @@ location:"USA",
             </div>
             <div className="body">
                 <div className="row">
-                    <div className="col-9">
+                    <div className="col-12 col-md-9">
                         <div className="row heading">
                             <div className="text">
                                 Events
@@ -412,8 +412,9 @@ location:"USA",
                         {events.map((event,index)=>{
                             if(index>EventsToShow-1 && index<EventsToShow+6){
                                 return(
-                                    
-                                    <div className="blogCard" key={index}>
+                                    <div className="col-md-4 col-12 ">
+
+                                    <div className="blogCard " key={index}>
                                         {/* {console.log(blog)} */}
                                         <div className="w-100">
                                             <img src={event.img} alt={event.title} className="w-100"/>
@@ -444,11 +445,12 @@ location:"USA",
                                             </div>
                                         </div>
                                         <div className="extra">
-                                            <button className="">
+                                            <button className="mb-3">
                                                 Read More
                                             </button>
                                             
                                         </div>
+                                    </div>
                                     </div>
                                 
                             )
@@ -457,7 +459,7 @@ location:"USA",
                     })}
                     </div>
                     </div>
-                    <div className="col-3 categories">
+                    <div className="col-12 col-md-3 categories">
                         <div className="heading">
                             Recent News
                         </div>
@@ -486,8 +488,11 @@ location:"USA",
                     </div>
                     
                 </div>
-                <div className="pageChange row">
+                <div className=" mt-4 mt-md-0 row">
+                    <div className="pageChange">
                     <SubPages pages={pages} currentPage={currentPage} nextPage={nextPage}/>
+                    </div>
+                    
                 </div>
             </div>
             <div className="footer">

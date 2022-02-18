@@ -150,7 +150,7 @@ const Faqs=()=>{
                 {/* header ends */}
                 <div className="body">
                     <div className="row">
-                        <div className="col-4 pr-5">
+                        <div className="col-12 col-md-4 pr-5">
                         <div className="categories">
                             {questions.map((categories,index)=>{
                                 return(
@@ -168,7 +168,7 @@ const Faqs=()=>{
                             })}
                         </div>
                         </div>
-                        <div className="col-7 ml-4 questions">
+                        <div className="col-12 col-md-7 ml-md-4 questions mt-5 mt-md-0">
                             {questions.map((question)=>{
                                 return(
                                     <div className="questionBox">

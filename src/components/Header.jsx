@@ -1,5 +1,17 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem } from 'reactstrap';
 
 import angLogo from '../assets/images/angLogo.png';
 import email from '../assets/images/email.png';
@@ -8,7 +20,12 @@ import liveChat from '../assets/images/liveChatLogo.png';
 import CountryDropDown from './CountryList';
 
 const Header=(props)=>{
+    const [navbarOpen,setNavbarOpen]=useState(false);
     const [dropdownOpen,setDropDownOpen]=useState(false);
+
+    const toggle=()=>{
+        setNavbarOpen(!navbarOpen);
+    }
     return (
         <div className='header'>
             <div className='navBar w-100 d-flex justify-content-between pl-5 pr-5'>
@@ -36,7 +53,7 @@ const Header=(props)=>{
                     </div>
                 </div>
             </div>
-            <div className='navBarItems'>
+            {/* <div className='navBarItems'>
                 <div className={`link ${(props.home)?"active":""}`}>
                     <Link to="/" style={{textDecoration:"none"}} className='link'>
                         HOME
@@ -66,6 +83,38 @@ const Header=(props)=>{
                     
                     <CountryDropDown setDropDownOpen={setDropDownOpen} dropdownOpen={dropdownOpen} />
                 </div>
+            </div> */}
+
+            <div className='navBarItems'>
+            <Navbar light expand="md" className='navBarFull col-12 col-md-8 offset-md-2'>
+          <NavbarToggler onClick={toggle} className='ml-auto'/>
+          <Collapse isOpen={navbarOpen} navbar>
+                    <Nav navbar className="links">
+                    <NavItem>
+                        <NavLink href="/" className={`textLink ${props.home?"activeNavbarItem":""}`}>HOME</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href="/story" className={`textLink ${props.story?"activeNavbarItem":""}`}>OUR STORY</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href="/events" className={`textLink ${props.events?"activeNavbarItem":""}`}>NEWS/EVENTS</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href="/blogs" className={`textLink ${props.blogs?"activeNavbarItem":""}`}>BLOG</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href="/guidance" className={`textLink ${props.guidance?"activeNavbarItem":""}`}>GUIDANCE</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href="/opportunity/" className={`textLink ${props.opportunity?"activeNavbarItem":""}`}>OPPORTUNITY</NavLink>
+                    </NavItem>
+                    <NavItem className='d-flex align-items-center'>
+                        <CountryDropDown setDropDownOpen={setDropDownOpen} dropdownOpen={dropdownOpen} />
+                    </NavItem>
+                    </Nav>
+                </Collapse>
+               
+                </Navbar>
             </div>
         </div>
     )

@@ -95,11 +95,11 @@ const UniversityPage=()=>{
                     </div>
                     
                     <div className="universityHeading">
-                                <div className="d-flex">
+                                <div className="d-flex flex-column flex-md-row w-100">
                                     <div >
                                         <img src={universityHeader.image} alt={universityHeader.name} className="img img fluid uniLogoImage"/>
                                     </div>
-                                    <div className="verticalLine h-75">
+                                    <div className="verticalLine h-75 d-none d-md-inline">
 
                                     </div>
                                     <div className="uni p-3">
@@ -110,7 +110,7 @@ const UniversityPage=()=>{
                                             <img src={universityHeader.flag} alt={universityHeader.flag} className="img img-fluid flag"/>
                                         </div>
                                     </div>
-                                    <div className="buttons ml-2 w-100">
+                                    <div className="buttons ml-auto  w-100">
                                         <div className="h-50 align-items-center d-flex w-100">
                                             <button className="normal btn btn-md">
                                                 View Courses

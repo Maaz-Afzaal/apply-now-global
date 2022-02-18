@@ -175,11 +175,12 @@ const Home=()=>{
     return(
         <div className='home'>
             <div className='header'>
-                <Header home={true}/>
+                <Header home/>
                 <HomeHeader/>
             </div>
             <div className='homeBody'>
                 <div className='whatToStudy'>
+                    <div className='whatToStudyCardBox'>
                     <div className='heading pt-5'>
                         <div className='text'>Unsure What To Study?</div>
                         <div className='smalltext'>HAVE A LOOK HERE...</div>
@@ -191,7 +192,8 @@ const Home=()=>{
                         {whatToStudy.map((item,idx)=>{
                             return(
                                 <>
-                                <div className={`fullCard ${((idx%2)==0)?"yellowCard":"purpleCard"}`} key={idx}>
+                                <div className={`fullCard col-12 col-sm-6 col-lg-4 p-3 ${((idx%2)==0)?"":""}`} key={idx}>
+                                    <div className={`${((idx%2)==0)?"yellowCard":"purpleCard"}`}>
                                     <div className='heading'>
                                         <div className='logo'>
                                             <img src={item.logo} alt={item.heading} className='img img-fluid'/>
@@ -216,11 +218,13 @@ const Home=()=>{
                                     <div className='viewAll'>
                                         View All &rarr;
                                     </div>
+                                    </div>
                                 </div>
                                 
                                 </>
                             )
                         })}
+                    </div>
                     </div>
                     <div className='desitnations row'>
                         <div className='heading w-100'>
@@ -297,11 +301,11 @@ const Home=()=>{
                         </div>
                     </div>
                     <div className='connectWithExpert'>
-                        <div className='background'>
-                            <img src={expertBackground} alt="background" className='img img-fluid'/>
+                        <div className='background pb-5'>
+                            <img src={expertBackground} alt="background" className='img img-fluid backgroundimg'/>
                             <div className='other'>
                             <div className='heading'>
-                            <div className='text'>
+                            <div className='text pt-5'>
                                 Connect With A Study Abroad Expert Now
                             </div>
                             <div className='line'>
@@ -309,7 +313,7 @@ const Home=()=>{
                             </div>
                         </div>
                         <div className='body row d-flex justify-content-around mt-5' >
-                            <div className='col-3 d-flex flex-column justify-content-start'>
+                            <div className='col-12 col-md-3 d-flex flex-column justify-content-start'>
                                 <div className='image'>
                                     <img src={expertChat1} alt="chat with expert" className='img img-fluid'/>
                                 </div>
@@ -320,7 +324,7 @@ const Home=()=>{
                                     Setup a chat with one of our expert counselors closest to you.
                                 </div>
                             </div>
-                            <div className='col-3 d-flex flex-column justify-content-start'>
+                            <div className='col-12 col-md-3 d-flex flex-column justify-content-start'>
                                 <div className='image'>
                                     <img src={expertChat2} alt="chat with expert" className='img img-fluid'/>
                                 </div>

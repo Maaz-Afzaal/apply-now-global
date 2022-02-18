@@ -321,7 +321,7 @@ const Blogs=()=>{
         <div className="blog">
             <div className="header">
                 <div>
-                    <Header blog/>
+                    <Header blogs/>
                 </div>
                 <div className="HeaderBot ">
                     <img src={faqImage} alt="students" className="blurImage"/> 
@@ -329,7 +329,7 @@ const Blogs=()=>{
             </div>
             <div className="body">
                 <div className="row">
-                    <div className="col-9">
+                    <div className="col-12 col-md-9">
                         <div className="row heading">
                             <div className="text">
                                 Articles
@@ -345,7 +345,7 @@ const Blogs=()=>{
                         {blogs.map((blog,index)=>{
                             if(index>blogToShow-1 && index<blogToShow+6){
                                 return(
-                                    
+                                    <div className="col-12 col-md-6 col-lg-4">
                                     <div className="blogCard" key={index}>
                                         {/* {console.log(blog)} */}
                                         <div className="w-100">
@@ -364,6 +364,7 @@ const Blogs=()=>{
                                             Read More
                                         </div>
                                     </div>
+                                    </div>
                                 
                             )
                             }
@@ -371,7 +372,7 @@ const Blogs=()=>{
                     })}
                     </div>
                     </div>
-                    <div className="col-3 categories">
+                    <div className="col-12 col-md-6 col-lg-3 categories">
                         <div className="heading">
                             Categories
                         </div>
@@ -412,8 +413,11 @@ const Blogs=()=>{
                     </div>
                     
                 </div>
-                <div className="pageChange row">
+                <div className="mt-4 row">
+                    <div className="pageChange">
                     <SubPages pages={pages} currentPage={currentPage} nextPage={nextPage}/>
+                    </div>
+                   
                 </div>
             </div>
             <div className="footer">

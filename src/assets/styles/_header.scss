@@ -1,7 +1,10 @@
 .header{
+    // height: 140px;
     .navBar{
         // padding:'50px';
         padding-bottom: 1rem;
+        height: 140px;
+
         .logo{
             width: 300px;
             margin:1.5rem;
@@ -21,31 +24,56 @@
             }
         }
     }
-    .navBarItems{
-        display: flex;
-        justify-content: space-around;
+    // .navBarItems{
+    //     display: flex;
+    //     justify-content: space-around;
         
-        width: 70vw;
-        left:15vw;
-        right: 15vw;
-        top: 7.5rem;
-        position: absolute;
-        z-index: 3;
-        padding: 1rem 0;
-        background-color: #f7f7f7ff;
-        box-shadow: 2px 2px 8px rgb(138, 137, 137);
-        border-radius: 3px;
-        cursor: pointer;
-        .link{
-            color: #6a2d87ff;
+    //     width: 70vw;
+    //     left:15vw;
+    //     right: 15vw;
+    //     top: 7.5rem;
+    //     position: absolute;
+    //     z-index: 3;
+    //     padding: 1rem 0;
+    //     background-color: #f7f7f7ff;
+    //     box-shadow: 2px 2px 8px rgb(138, 137, 137);
+    //     border-radius: 3px;
+    //     cursor: pointer;
+    //     .link{
+    //         color: #6a2d87ff;
             
-        }
+    //     }
 
-        .link:hover{
-            color: black;
-        }  
-        .active{
-            color: black;
+    //     .link:hover{
+    //         color: black;
+    //     }  
+    //     .active{
+    //         color: black;
+    //     }
+    // }
+    .navBarItems{
+        .navBarFull{
+            background-color: #f7f7f7ff;
+            border-radius: 6px;
+            box-shadow: 5px 5px 8px rgb(156, 156, 156);
+            position: absolute;
+            z-index: 3;
+            top: 110px;
+            .links{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            .textLink{
+                color:#6a2e87ff;
+                font-weight: 600;
+            }
+            .activeNavbarItem{
+                color: black;
+            }
+            .textLink:hover{
+                color: black;
+            }
+            }
         }
     }
 }

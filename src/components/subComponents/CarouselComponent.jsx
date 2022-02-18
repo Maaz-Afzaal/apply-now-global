@@ -46,6 +46,7 @@ const CarouselComponent =(props)=>{
         <div className="carouselBody">
      
               <Carousel responsive={responsive}
+              infinite={true}
               arrows={false} customButtonGroup={<ButtonGroup />}
               >
                 {props.data.map((item, indx) => {

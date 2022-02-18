@@ -15,7 +15,7 @@ const CoursesCard=(props)=>{
                             </div>
                             <div className="restCard">
                                 <div className="top">
-                                    <div className="col-6 d-flex justify-content-start flex-column">
+                                    <div className="col-12 col-sm-6 d-flex justify-content-start flex-column">
                                         <div className="courseName">
                                             {item.courseName}
                                         </div>
@@ -32,7 +32,7 @@ const CoursesCard=(props)=>{
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-6 d-flex justify-content-end">
+                                    <div className="col-12 col-sm-6 mt-2 mt-md-0 mb-2 mb-lg-0 d-flex justify-content-end">
                                         <button className="blackButton">
                                             Entry Requirement
                                         </button>
