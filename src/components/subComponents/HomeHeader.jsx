@@ -24,7 +24,7 @@ const HomeHeader=()=>{
              
                 
                 <div className="content">
-                    <div className="courses">
+                    <div className="courses d-none d-lg-flex">
                         <div className="one d-flex flex-column justify-content-center">
                             <div className="logo">
                                 <img src={mbaLogo} alt="MBA" className="img img-fluid"/>
@@ -76,7 +76,7 @@ const HomeHeader=()=>{
                         
                     </div>
                     <div className="searchBox">
-                        <form className="searchForm" onSubmit={e=>handleSubmit(e)}>
+                        <form className="searchForm w-100 pr-0 pr-lg-5" onSubmit={e=>handleSubmit(e)}>
                         <div className="radioButtons d-flex">
                             <div className="d-flex">
                             <input
@@ -112,8 +112,8 @@ const HomeHeader=()=>{
                             
                            
                             </div>
-                            <div className="row otherInputs m-3">
-                                <div className="level mr-3">
+                            <div className="row otherInputs ">
+                                <div className="level col-10 col-lg-2 mt-3">
                                     <select id="level" placeholder="Level" onChange={(e)=>{
                                         setValues({...values,level:e.target.value})
                                     }}>
@@ -123,7 +123,7 @@ const HomeHeader=()=>{
                                         <option value="Masters">Masters</option>
                                     </select>
                                 </div>
-                                <div className="level">
+                                <div className="level col-10 col-lg-2 mt-3">
                                     <select name="country" id="cars" placeholder="Country" onChange={(e)=>{
                                         setValues({...values,country:e.target.value})
                                     }}>
@@ -133,14 +133,16 @@ const HomeHeader=()=>{
                                         <option value="USA">USA</option>
                                     </select>
                                 </div>
-                                <div className="searchCourseInput">
+                                <div className="searchCourseInput col-10 col-lg-6 mt-3">
                                     <input type="text" value={values.selectCourse}
                                     placeholder="Search Course..."
+                                    className=""
                                     onChange={(e)=>{
                                         setValues({...values,selectCourse:e.target.value})
-                                    }}/>
+                                    }}
+                                    />
                                 </div>
-                                <div className="formSubmit">
+                                <div className="formSubmit col-8 col-lg-2 mt-3 ">
                                     <button className="gradientButton" type="submit" value="Submit" onSubmit={e=>handleSubmit(e)}>Submit</button>
                                 </div>
 

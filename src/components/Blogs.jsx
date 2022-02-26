@@ -3,6 +3,7 @@ import React,{useEffect, useState,useMemo} from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import SubPages from "./subComponents/SubPages";
+import { getData } from "../utilities";
 
 import faqImage from '../assets/images/faqImage.png';
 import blog_1 from '../assets/images/blog_1.png';
@@ -37,246 +38,298 @@ const Blogs=()=>{
     const [search,setSearch]=useState('');
     const [searchedArray,setSearchedArray]=useState([]);
     const [categories,setCategories]=useState([
-        {name:"Advice",blogs:"142"},
-        {name:"Australia",blogs:"23"},
-        {name:"Canada",blogs:"32"},
-        {name:"Fairs",blogs:"11"},
-        {name:"India",blogs:"55"},
-        {name:"Inforgraphic",blogs:"23"},
-        {name:"Ireland",blogs:"142"},
-        {name:"Latest Events",blogs:"56"},
-        {name:"New zealands",blogs:"12"},
-        {name:"News & events",blogs:"43"},
-        {name:"Past Events",blogs:"41"},
-        {name:"Uk",blogs:"142"},
-        {name:"Uncategorized",blogs:"67"},
-        {name:"USA",blogs:"27"},
+        // {name:"Advice",blogs:"142"},
+        // {name:"Australia",blogs:"23"},
+        // {name:"Canada",blogs:"32"},
+        // {name:"Fairs",blogs:"11"},
+        // {name:"India",blogs:"55"},
+        // {name:"Inforgraphic",blogs:"23"},
+        // {name:"Ireland",blogs:"142"},
+        // {name:"Latest Events",blogs:"56"},
+        // {name:"New zealands",blogs:"12"},
+        // {name:"News & events",blogs:"43"},
+        // {name:"Past Events",blogs:"41"},
+        // {name:"Uk",blogs:"142"},
+        // {name:"Uncategorized",blogs:"67"},
+        // {name:"USA",blogs:"27"},
         
     ])
-    const [blogs,setBlogs]=useState([
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad1",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Graduate Schemes and preparing for test2",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad3",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university4",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad5",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_5,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university6",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad7",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Graduate Schemes and preparing for test8",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad9",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_5,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university10",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad18",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Graduate Schemes and preparing for test",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_5,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Graduate Schemes and preparing for test",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university10",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad18",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Graduate Schemes and preparing for test",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university10",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad18",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Graduate Schemes and preparing for test",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university10",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad18",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Graduate Schemes and preparing for test",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"How to prepare for studying abroad",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-            title:"Tips for deaf students at university",
-            description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
-            img:blog_4,
-        },
-    ])
+    // const [blogs,setBlogs]=useState([
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad1",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_1,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Graduate Schemes and preparing for test2",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_2,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad3",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_3,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university4",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_4,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad5",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_5,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university6",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_6,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad7",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_1,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Graduate Schemes and preparing for test8",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_2,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad9",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_3,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_4,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_5,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university10",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_6,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad18",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_1,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Graduate Schemes and preparing for test",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_2,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_3,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_4,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_5,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_6,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_1,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Graduate Schemes and preparing for test",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_2,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_3,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_4,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university10",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_6,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad18",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_1,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Graduate Schemes and preparing for test",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_2,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_3,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_4,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university10",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_6,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad18",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_1,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Graduate Schemes and preparing for test",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_2,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_3,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_4,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university10",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_6,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad18",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_1,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Graduate Schemes and preparing for test",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_2,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"How to prepare for studying abroad",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_3,
+    //     },
+    //     {
+    //         date:"Feburary 5,2020",
+    //         title:"Tips for deaf students at university",
+    //         description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //         img:blog_4,
+    //     },
+    // ])
+
+    const [blogs,setBlogs]=useState([]);
+    // {
+    //     date:"Feburary 5,2020",
+    //     title:"How to prepare for studying abroad1",
+    //     description:"Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.Ever heard of the saying: “If you fail to prepare, prepare to fail?” Well, you don’t have to worry about that. You’re already on your way to success because you are genius.",
+    //     img:blog_1,
+    // },
+    const getAllBlogs=async (searchedCategory)=>{
+       
+            const {result,error}=await getData("/api/blog/list");
+        const getObj=(date,title,description,img,category)=>{
+            return {date,title,description,img,category}
+        }
+        if(result){
+            const tempArray=[];
+            const tempCategoryArray=[];
+            result.body.map((item,index)=>{
+                tempArray.push(getObj(item.date,item.title,item.body,item.image,item.category))
+                tempCategoryArray.push(item.category)
+                
+            })
+            if(!searchedCategory){
+                setBlogs([...tempArray])
+            }
+            else{
+                const newArray=tempArray.filter((i,idx)=>{
+                    console.log(searchedCategory,"i is ",i)
+                    return i.category==searchedCategory
+                })
+                console.log(newArray)
+                setBlogs([...newArray])
+            }
+            const blogCounts={};
+            tempCategoryArray.forEach((x) => {
+                blogCounts[x] = (blogCounts[x] || 0) + 1;
+              });
+            const categoryArray=[...new Set(tempCategoryArray)]
+            const categoryArrayWithCounts=[]
+            categoryArray.map((categoryName,index)=>{
+                categoryArrayWithCounts.push({name:categoryName,blogs:blogCounts[`${categoryName}`]})
+            })
+            
+            setCategories([...categoryArrayWithCounts])
+            
+        }
+        else{
+            console.log("blogs error is",error)
+        }
+        
+        
+    }
     const searchedCategories=(value)=>{
         if(value==""){
             setSearchedArray([...categories])
@@ -296,6 +349,9 @@ const Blogs=()=>{
             
         
     }
+    useEffect(()=>{
+        getAllBlogs();
+    },[])
     useEffect(()=>{
         if((blogs.length/6)%1==0){
             setPages(blogs.length/6);
@@ -341,15 +397,15 @@ const Blogs=()=>{
                                 <div className="square"></div>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row ">
                         {blogs.map((blog,index)=>{
                             if(index>blogToShow-1 && index<blogToShow+6){
                                 return(
-                                    <div className="col-12 col-md-6 col-lg-4">
+                                    <div className="col-12 col-md-6 col-lg-4 d-flex align-items-strech">
                                     <div className="blogCard" key={index}>
                                         {/* {console.log(blog)} */}
-                                        <div className="w-100">
-                                            <img src={blog.img} alt={blog.title} className="w-100"/>
+                                        <div className="w-100" style={{height:"250px"}}>
+                                            <img src={blog.img} alt={blog.title} className="w-100" style={{height:"250px",borderRadius:"10px 10px 0 0"}}/>
                                         </div>
                                         <div className="date">
                                             {blog.date}
@@ -360,7 +416,9 @@ const Blogs=()=>{
                                         <div className="blogDescription">
                                             {textLimit(blog.description)}
                                         </div>
-                                        <div className="extra">
+                                        <div className="extra pointer" onClick={()=>{
+                                            alert("Coming soon...")
+                                        }}>
                                             Read More
                                         </div>
                                     </div>
@@ -400,7 +458,7 @@ const Blogs=()=>{
                             
                             {searchedArray.map((item,index)=>{
                                 return(
-                                    <div className="text" key={index}>
+                                    <div className="text pointer" key={index} onClick={()=>{getAllBlogs(item.name)}}>
                                         {item.name} ({item.blogs})
                                         
                                         {(index==categories.length-1)?<></>:<>
@@ -413,9 +471,10 @@ const Blogs=()=>{
                     </div>
                     
                 </div>
-                <div className="mt-4 row">
+                <div className="mt-4 ">
                     <div className="pageChange">
-                    <SubPages pages={pages} currentPage={currentPage} nextPage={nextPage}/>
+                        {pages>1 && <SubPages pages={pages} currentPage={currentPage} nextPage={nextPage}/>}
+                    
                     </div>
                    
                 </div>

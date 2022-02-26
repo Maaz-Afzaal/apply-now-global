@@ -1,20 +1,22 @@
-import React,{useState} from "react";
-
+import React,{useState,useEffect} from "react";
+import { useParams } from "react-router-dom";
 import header1 from '../assets/images/header1.png'
 import Header from './Header';
 import Footer from './Footer';
+import {getData} from '../utilities';
 import Card from './subComponents/CardUniversity';
 import ADELPHI_UNIVERSITY_LOGO from '../assets/images/adelphiUniversityLogo.png';
 import USA from '../assets/images/USAFlag.png';
 
 const UniversityPage=()=>{
-    const [universityHeader,setUniversityHeader]=useState(
-        {image:ADELPHI_UNIVERSITY_LOGO,
-        name:"Adelphi University",
-        flag:USA,
-        courses:"courses"
-    }
-    )
+    const param=useParams();
+    // const [universityHeader,setUniversityHeader]=useState(
+    //     {image:ADELPHI_UNIVERSITY_LOGO,
+    //     name:"Adelphi University",
+    //     flag:USA,
+    //     courses:"courses"
+    // }
+    // )
     const [universityDetails,setUniversityDetails]=useState([
         {content:["Adelphi University is a highly awarded, nationally ranked, powerfully connected doctoral research university offering exceptional liberal arts and sciences programs and professional training with particular strength in its Core Four—Arts and Humanities, STEM and Social Sciences, the Business and Education Professions, and Health and Wellness. Adelphi is dedicated to transforming students’ lives through small classes, hands-on learning and innovative ways to support student success.",
     "Founded in Brooklyn in 1896, Adelphi is Long Island’s oldest private coeducational university. Today Adelphi serves more than 8,100 students at its beautiful main campus in Garden City, New York—just 23 miles from New York City’s cultural and internship opportunities—and at dynamic learning hubs in Manhattan, the Hudson Valley and Suffolk County, and online."
@@ -22,7 +24,8 @@ const UniversityPage=()=>{
 ],
     isList:false,
     heading:"Overview",
-},{
+},
+{
     content:["Adelphi University’s Manhattan Center is located in the SoHo neighborhood of Manhattan, at 75 Varick Street at the intersection of Varick and Canal Streets, where art and trade converge. The Center is easily accessible from Wall Street and Midtown and is well served by subways connecting students, faculty and administrators to Brooklyn, Queens and the Bronx."],
     isList:false,
     heading:"Location",
@@ -83,6 +86,40 @@ const UniversityPage=()=>{
         heading:"Scholarship Opportunity",
     }
     ])
+
+    const [universityHeader,setUniversityHeader]=useState([]);
+    const getUniversityName=async ()=>{
+        const {result,error}=await getData("/api/university/list");
+        if(result){
+            const tempArray=[];
+            const getObj=(image,name,flag)=>{
+                return {image,name,flag}
+            }
+            console.log("params are",param);
+            
+            result.body.map((item,index)=>{
+                let uniName=item.name.toLowerCase();
+                uniName=uniName.replace(/\s/gm, '');
+                uniName=uniName.replace(/\./g,"");
+                if(uniName===param.universityname){
+                    // console.log("uniname is",uniName)
+                    tempArray.push(getObj(item.logo,item.name,item.countryId.flag));
+                } 
+            })
+            console.log("temp array is",tempArray)
+            setUniversityHeader(...tempArray);
+            console.log("temp array is",universityHeader)
+        }
+        else if(error){
+            console.log("error to get university data ",error)
+        }
+    }
+    useEffect(()=>{
+        if(universityHeader){
+            getUniversityName();
+        }
+        
+    },[])
     return(
         <div className="universityPage">
             <div className="header">
@@ -96,14 +133,14 @@ const UniversityPage=()=>{
                     
                     <div className="universityHeading">
                                 <div className="d-flex flex-column flex-md-row w-100">
-                                    <div >
+                                    <div className="pl-3 pr-3">
                                         <img src={universityHeader.image} alt={universityHeader.name} className="img img fluid uniLogoImage"/>
                                     </div>
                                     <div className="verticalLine h-75 d-none d-md-inline">
 
                                     </div>
                                     <div className="uni p-3">
-                                        <div className="name d-flex align-items-center h-50">
+                                        <div className="name d-flex align-items-center mb-3 h-50">
                                             {universityHeader.name}
                                         </div>
                                         <div className="mt-auto h-50 align-items-center d-flex">

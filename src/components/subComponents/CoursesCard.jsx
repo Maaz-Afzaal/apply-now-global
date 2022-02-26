@@ -32,7 +32,7 @@ const CoursesCard=(props)=>{
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-12 col-sm-6 mt-2 mt-md-0 mb-2 mb-lg-0 d-flex justify-content-end">
+                                    <div className="col-12 col-sm-6 mt-2 mt-md-0 mb-2  d-flex justify-content-end">
                                         <button className="blackButton">
                                             Entry Requirement
                                         </button>
@@ -41,7 +41,7 @@ const CoursesCard=(props)=>{
                                         </button>
                                     </div>
                                 </div>
-                                <div className="bot">
+                                <div className="bot mt-2">
                                     <div className="d-flex flex-column justify-content-start">
                                         <div className="text">
                                             TUTION FEE

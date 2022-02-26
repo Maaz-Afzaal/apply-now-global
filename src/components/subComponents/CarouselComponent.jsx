@@ -53,7 +53,7 @@ const CarouselComponent =(props)=>{
                   return (  
                     <div className="m-0 carouselCard " key={indx} style={{height:`calc(${props.height} + 75px)`}}>
                         <div className="h-100">
-                            {console.log(item)}
+                            
                         <img
                         src={item?.image}
                         alt=""

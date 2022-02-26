@@ -111,23 +111,23 @@ const Footer=()=>{
                 </div>
                 <div className='bot row border border-light'>
                         <div className='col-12 col-md-6 text-left mb-3 mb-md-0'>
-                        &#169;Copyright 2022 ApplyNowGlobal | Developed by EXTENSASOL
+                        &#169;Copyright 2022 ApplyNowGlobal | Developed by <a href="https://www.extensasol.com/" target="_blank" style={{textDecoration:"none",color:"white"}}>EXTENSASOL</a>
                         </div>
                         <div className='col-12 col-md-6'>
                             <div className='d-flex w-100 justify-content-end row'>
-                            <div style={{borderRight:"1px solid white",}} className=' col-12 col-md-2 text-center'>
+                            <div style={{borderRight:"1px solid white",}} className=' col-12 col-md-2 text-left text-md-center'>
                                 Disclaimer
                             </div>
                             
-                            <div style={{borderRight:"1px solid white",}} className='  col-12 col-md-2 text-center'>
+                            <div style={{borderRight:"1px solid white",}} className='  col-12 col-md-2 text-left text-md-center'>
                                 Privacy Policy
                             </div>
                             
-                            <div style={{borderRight:"1px solid white",}} className='col-12 col-md-2 text-center'> 
+                            <div style={{borderRight:"1px solid white",}} className='col-12 col-md-2 text-left text-md-center'> 
                                 Terms of Use
                             </div>
                            
-                            <div style={{borderRight:"0px solid white",}} className='col-12 col-md-2 text-left pl-3'>
+                            <div style={{borderRight:"0px solid white",}} className='col-12 col-md-2 text-left  pl-3'>
                                 Blog
                             </div>
                             </div>

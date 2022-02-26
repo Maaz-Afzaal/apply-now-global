@@ -14,9 +14,22 @@ const SubPages=(props)=>{
     const handleNextPage=(next)=>{
         props.nextPage(next);
     }
-    if(props.pages<4){
+    if(props.pages==2){
         return(
-            <div className="row d-flex justify-content-center border pages">
+            <div className="row d-flex justify-content-center  pages">
+                <div className="text d-flex">
+                    <div onClick={()=>{handleNextPage(props.currentPage-1)}} className={`${(props.currentPage==1)?"invisible":"m-3"}`}>{'<<'}</div>
+                    <div className={(props.currentPage==1)?"active m-3":"m-3"} onClick={()=>{handleNextPage(1)}} >1</div>
+                    <div className={(props.currentPage==2)?"active m-3":"m-3"} onClick={()=>{handleNextPage(2)}}>2</div>
+                   
+                    <div onClick={()=>{handleNextPage(props.currentPage+1)}} className={`${(props.currentPage==2)?"invisible":"m-3"}`}>{'>>'}</div>
+                </div>
+            </div>
+        )
+    }
+    else if(props.pages==3){
+        return(
+            <div className="row d-flex justify-content-center  pages">
                 <div className="text d-flex">
                     <div onClick={()=>{handleNextPage(props.currentPage-1)}} className={`${(props.currentPage==1)?"invisible":"m-3"}`}>{'<<'}</div>
                     <div className={(props.currentPage==1)?"active m-3":"m-3"} onClick={()=>{handleNextPage(1)}} >1</div>

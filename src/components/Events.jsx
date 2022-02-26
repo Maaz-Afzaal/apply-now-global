@@ -1,8 +1,9 @@
 import React,{useEffect, useState,useMemo} from "react";
-
+import axios from 'axios';
 import Header from "./Header";
 import Footer from "./Footer";
 import SubPages from "./subComponents/SubPages";
+import { getData } from "../utilities";
 
 import faqImage from '../assets/images/faqImage.png';
 import blog_1 from '../assets/images/blog_1.png';
@@ -41,304 +42,334 @@ const Events=()=>{
         {name:"USA",latest:true,trending:false},
         
     ])
-    const [events,setEvents]=useState([
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad1",
-            description:"British University Fair",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Graduate Schemes and preparing for test2",
-            description:"British University Fair",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad3",
-            description:"British University Fair",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university4",
-            description:"British University Fair",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad5",
-            description:"British University Fair",
-            img:blog_5,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university6",
-            description:"British University Fair",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad7",
-            description:"British University Fair",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Graduate Schemes and preparing for test8",
-            description:"British University Fair",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad9",
-            description:"British University Fair",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university",
-            description:"British University Fair",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad",
-            description:"British University Fair",
-            img:blog_5,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university10",
-            description:"British University Fair",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad18",
-            description:"British University Fair",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Graduate Schemes and preparing for test",
-            description:"British University Fair",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad",
-            description:"British University Fair",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university",
-            description:"British University Fair",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad",
-            description:"British University Fair",
-            img:blog_5,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university",
-            description:"British University Fair",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad",
-            description:"British University Fair",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Graduate Schemes and preparing for test",
-            description:"British University Fair",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad",
-            description:"British University Fair",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university",
-            description:"British University Fair",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university10",
-            description:"British University Fair",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad18",
-            description:"British University Fair",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Graduate Schemes and preparing for test",
-            description:"British University Fair",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad",
-            description:"British University Fair",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university",
-            description:"British University Fair",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university10",
-            description:"British University Fair",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad18",
-            description:"British University Fair",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Graduate Schemes and preparing for test",
-            description:"British University Fair",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad",
-            description:"British University Fair",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university",
-            description:"British University Fair",
-            img:blog_4,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university10",
-            description:"British University Fair",
-            img:blog_6,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad18",
-            description:"British University Fair",
-            img:blog_1,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Graduate Schemes and preparing for test",
-            description:"British University Fair",
-            img:blog_2,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"How to prepare for studying abroad",
-            description:"British University Fair",
-            img:blog_3,
-        },
-        {
-            date:"Feburary 5,2020",
-time:"10Am - 7PM",
-location:"USA",
-            title:"Tips for deaf students at university",
-            description:"British University Fair",
-            img:blog_4,
-        },
-    ])
+//     const [events,setEvents]=useState([
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad1",
+//             description:"British University Fair",
+//             img:blog_1,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Graduate Schemes and preparing for test2",
+//             description:"British University Fair",
+//             img:blog_2,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad3",
+//             description:"British University Fair",
+//             img:blog_3,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university4",
+//             description:"British University Fair",
+//             img:blog_4,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad5",
+//             description:"British University Fair",
+//             img:blog_5,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university6",
+//             description:"British University Fair",
+//             img:blog_6,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad7",
+//             description:"British University Fair",
+//             img:blog_1,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Graduate Schemes and preparing for test8",
+//             description:"British University Fair",
+//             img:blog_2,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad9",
+//             description:"British University Fair",
+//             img:blog_3,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university",
+//             description:"British University Fair",
+//             img:blog_4,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad",
+//             description:"British University Fair",
+//             img:blog_5,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university10",
+//             description:"British University Fair",
+//             img:blog_6,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad18",
+//             description:"British University Fair",
+//             img:blog_1,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Graduate Schemes and preparing for test",
+//             description:"British University Fair",
+//             img:blog_2,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad",
+//             description:"British University Fair",
+//             img:blog_3,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university",
+//             description:"British University Fair",
+//             img:blog_4,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad",
+//             description:"British University Fair",
+//             img:blog_5,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university",
+//             description:"British University Fair",
+//             img:blog_6,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad",
+//             description:"British University Fair",
+//             img:blog_1,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Graduate Schemes and preparing for test",
+//             description:"British University Fair",
+//             img:blog_2,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad",
+//             description:"British University Fair",
+//             img:blog_3,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university",
+//             description:"British University Fair",
+//             img:blog_4,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university10",
+//             description:"British University Fair",
+//             img:blog_6,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad18",
+//             description:"British University Fair",
+//             img:blog_1,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Graduate Schemes and preparing for test",
+//             description:"British University Fair",
+//             img:blog_2,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad",
+//             description:"British University Fair",
+//             img:blog_3,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university",
+//             description:"British University Fair",
+//             img:blog_4,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university10",
+//             description:"British University Fair",
+//             img:blog_6,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad18",
+//             description:"British University Fair",
+//             img:blog_1,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Graduate Schemes and preparing for test",
+//             description:"British University Fair",
+//             img:blog_2,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad",
+//             description:"British University Fair",
+//             img:blog_3,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university",
+//             description:"British University Fair",
+//             img:blog_4,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university10",
+//             description:"British University Fair",
+//             img:blog_6,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad18",
+//             description:"British University Fair",
+//             img:blog_1,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Graduate Schemes and preparing for test",
+//             description:"British University Fair",
+//             img:blog_2,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"How to prepare for studying abroad",
+//             description:"British University Fair",
+//             img:blog_3,
+//         },
+//         {
+//             date:"Feburary 5,2020",
+// time:"10Am - 7PM",
+// location:"USA",
+//             title:"Tips for deaf students at university",
+//             description:"British University Fair",
+//             img:blog_4,
+//         },
+//     ])
+
+
+        const [events,setEvents]=useState([]);
+
+        // {
+            //             date:"Feburary 5,2020",
+            // time:"10Am - 7PM",
+            // location:"USA",
+            //             title:"How to prepare for studying abroad1",
+            //             description:"British University Fair",
+            //             img:blog_1,
+            //         },
+    const getAllEvents=async ()=>{
+        const {result,error}=await getData('/api/event/list')
+        const returnObj=(date,time,location,title,description,img)=>{
+            return {date,time,location,title,description,img}
+        }
+        if(result){
+            const tempArray=[];
+            console.log(result,"result is")
+            result.body.map((item,index)=>{
+                tempArray.push(returnObj(item.date,item.time || "10Am - 7PM",item.universityId.city,item.title,item.description || "British University Fair",item.image))
+            })
+            setEvents([...tempArray])
+        }
+        else{
+            console.log("error is ",error);
+        }
+        
+    }
     const searchedCategories=(value)=>{
         if(value){
             const tmpArray=[];
@@ -360,6 +391,9 @@ location:"USA",
             setSearchedArray([...tmpArray]);
         }
     }
+    useEffect(()=>{
+        getAllEvents();
+    },[])
     useEffect(()=>{
         searchedCategories(latest);
     },[latest])
@@ -408,16 +442,16 @@ location:"USA",
                                 <div className="square"></div>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row ">
                         {events.map((event,index)=>{
                             if(index>EventsToShow-1 && index<EventsToShow+6){
                                 return(
-                                    <div className="col-md-4 col-12 ">
+                                    <div className="col-md-4 col-12 align-items-stretch d-flex ">
 
-                                    <div className="blogCard " key={index}>
+                                    <div className="blogCard d-flex flex-column " key={index}>
                                         {/* {console.log(blog)} */}
                                         <div className="w-100">
-                                            <img src={event.img} alt={event.title} className="w-100"/>
+                                            <img src={event.img} alt={event.title} className="w-100" style={{borderRadius:"10px 10px 0 0"}}/>
                                         </div>
                                         
                                         <div className="blogTitle">
@@ -444,8 +478,8 @@ location:"USA",
                                             {event.location}
                                             </div>
                                         </div>
-                                        <div className="extra">
-                                            <button className="mb-3">
+                                        <div className="extra" style={{marginTop:"auto"}}>
+                                            <button className="mb-3 mt-2">
                                                 Read More
                                             </button>
                                             
@@ -488,9 +522,12 @@ location:"USA",
                     </div>
                     
                 </div>
-                <div className=" mt-4 mt-md-0 row">
+                <div className=" mt-4 ">
                     <div className="pageChange">
-                    <SubPages pages={pages} currentPage={currentPage} nextPage={nextPage}/>
+                    {
+                        pages>1 && <SubPages pages={pages} currentPage={currentPage} nextPage={nextPage}/>
+                    }
+                    
                     </div>
                     
                 </div>

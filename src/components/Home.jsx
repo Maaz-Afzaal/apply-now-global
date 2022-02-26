@@ -17,55 +17,60 @@ import engineeringLogo from '../assets/images/home/engineeringLogo.png';
 import expertChat1 from '../assets/images/home/expertChat1.png';
 import expertChat2 from '../assets/images/home/expertChat2.png';
 import expertBackground from '../assets/images/expertBackground.png';
+import { useEffect } from 'react/cjs/react.development';
+import { getData } from '../utilities';
 
 
 
 const Home=()=>{
-    const [whatToStudy,setWhatToStudy]=useState([
-        {
-            logo:computerScienceLogo,
-            heading:"Computer Science",
-            courses:[
-                "Computer Science","IT","Software","Multimedia"
-            ]
-        },
-        {
-            logo:businessLogo,
-            heading:"Business",
-            courses:[
-                "Management","Business Studies","Accounting","Finance"
-            ]
-        },
-        {
-            logo:socialLogo,
-            heading:"Social Studies",
-            courses:[
-                "Media","Social Work","Sociology","Economics"
-            ]
-        },
-        {
-            logo:scienceLogo,
-            heading:"Science",
-            courses:[
-                "Biology","General Science","Environmental Science","Sports Science"
-            ]
-        },
-        {
-            logo:healthLogo,
-            heading:"Health",
-            courses:[
-                "Medical","Psycology","Nursiing","Health Studies"
-            ]
-        },
-        {
-            logo:engineeringLogo,
-            heading:"Engineering",
-            courses:[
-                "General Technology","Civil Engineering","Mechanical Engineering","Aerospace Engineering"
-            ]
-        },
+    const whatToStudyCardImages=[
+        computerScienceLogo,businessLogo,socialLogo,scienceLogo,healthLogo,engineeringLogo
+    ]
+    // const [whatToStudy,setWhatToStudy]=useState([
+    //     {
+    //         logo:computerScienceLogo,
+    //         heading:"Computer Science",
+    //         courses:[
+    //             "Computer Science","IT","Software","Multimedia"
+    //         ]
+    //     },
+    //     {
+    //         logo:businessLogo,
+    //         heading:"Business",
+    //         courses:[
+    //             "Management","Business Studies","Accounting","Finance"
+    //         ]
+    //     },
+    //     {
+    //         logo:socialLogo,
+    //         heading:"Social Studies",
+    //         courses:[
+    //             "Media","Social Work","Sociology","Economics"
+    //         ]
+    //     },
+    //     {
+    //         logo:scienceLogo,
+    //         heading:"Science",
+    //         courses:[
+    //             "Biology","General Science","Environmental Science","Sports Science"
+    //         ]
+    //     },
+    //     {
+    //         logo:healthLogo,
+    //         heading:"Health",
+    //         courses:[
+    //             "Medical","Psycology","Nursiing","Health Studies"
+    //         ]
+    //     },
+    //     {
+    //         logo:engineeringLogo,
+    //         heading:"Engineering",
+    //         courses:[
+    //             "General Technology","Civil Engineering","Mechanical Engineering","Aerospace Engineering"
+    //         ]
+    //     },
 
-    ])
+    // ])
     const [pathwayProviders,setpathwayProviders]=useState([
         {
             image:require('../assets/images/home/Pathway1.png')
@@ -172,6 +177,50 @@ const Home=()=>{
             name:"Australia"
         }
     ])
+    const [whatToStudy,setWhatToStudy]=useState([])
+
+    const getWhatToStudyCourses=async (tempArrayForDepart)=>{
+        const {result,error}=await getData("/api/course/list")
+            if(result){
+                const tempArrayForCourse=[];
+                const getObj=(logo,heading,courses)=>{
+                    return {logo,heading,courses}
+                }
+                tempArrayForDepart.map((departName,idx)=>{
+                    const tempArray=[]
+                    result.body.map((course,index)=>{
+                        if(course.departId.name==departName){
+                            tempArray.push(course.title)
+                        }
+                       
+                    });
+                    tempArrayForCourse.push(getObj(whatToStudyCardImages[idx],departName,tempArray));
+                })
+                setWhatToStudy([...tempArrayForCourse]);
+                console.log("what to stude",tempArrayForCourse)
+                
+            }
+            else if(error){
+                console.log("error while fetching subjects:",error);
+            }
+    }
+    const getWhatToStudyData=async ()=>{
+        const {result,error}=await getData("/api/course/department/list")
+        if(result){
+            const tempArrayForDepart=[];
+            
+            result.body.map((depart,index)=>{
+                tempArrayForDepart.push(depart.name);    
+            })
+            getWhatToStudyCourses(tempArrayForDepart);
+        }
+        else if(error){
+            console.log("error is",error)
+        }
+    }
+    useEffect(()=>{
+        getWhatToStudyData();
+    })
     return(
         <div className='home'>
             <div className='header'>
@@ -215,7 +264,7 @@ const Home=()=>{
                                             }
                                         })}
                                     </div>
-                                    <div className='viewAll'>
+                                    <div className='viewAll pointer' onClick={()=>{alert("Coming soon.....")}}>
                                         View All &rarr;
                                     </div>
                                     </div>
@@ -236,7 +285,7 @@ const Home=()=>{
                                         Favorite International Study Destinations
                                 </div>
                                 <div className='align-self-end col-2 ml-auto d-flex justify-content-end'>
-                                    <b>
+                                <b className='pointer'  onClick={()=>{alert("Coming soon.....")}}> 
                                         See more <span style={{fontWeight:"1000",fontSize:"24px",alignSelf:"center"}}>
                                         &#8594;
                                             </span>
@@ -261,7 +310,7 @@ const Home=()=>{
                                     Top Ranked Universities
                                 </div>
                                 <div className='align-self-end'>
-                                    <b>
+                                    <b className='pointer'  onClick={()=>{alert("Coming soon.....")}}> 
                                         See more <span style={{fontWeight:"1000",fontSize:"24px",alignSelf:"center"}}>
                                         &#8594;
                                             </span>
@@ -284,7 +333,7 @@ const Home=()=>{
                                     Top Education Pathway Providers
                                 </div>
                                 <div className='align-self-end'>
-                                    <b>
+                                <b className='pointer'  onClick={()=>{alert("Coming soon.....")}}>  
                                         See more <span style={{fontWeight:"1000",fontSize:"24px",alignSelf:"center"}}>
                                         &#8594;
                                             </span>

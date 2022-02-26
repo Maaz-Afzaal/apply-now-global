@@ -2,7 +2,11 @@
     .image{
         position: relative;
         width:100vw;
-        height: 97vh;
+        height: 90vh;
+        img{
+            height:90vh;
+            object-fit: cover;
+        }
         .absolteImage{
             img{
                 // position: absolute;
@@ -108,14 +112,14 @@
                             }
                         .level{
                             min-height: 32px;
-                            min-width: 12vw;
+                            width: 100%;
                         }
                         .searchCourseInput{
                             
                             // margin-left:'10px';
-                            padding-left: 10px;
+                            // padding-left: 10px;
                             input{
-                                width: 35vw;
+                                width: 100%;
                                 height: 38px;
                                 // border:'0px #88959bff solid';
                                 border-radius: 4px;
@@ -125,8 +129,8 @@
                         }
                         button{
                             height: 38px;
-                            margin-left:10px;
-                            width: 12vw;
+                            margin-left:0px;
+                            width: 100%;
                         }
                     }
 

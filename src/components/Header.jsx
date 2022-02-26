@@ -28,11 +28,11 @@ const Header=(props)=>{
     }
     return (
         <div className='header'>
-            <div className='navBar w-100 d-flex justify-content-between pl-5 pr-5'>
+            <div className='navBar w-100 d-md-flex justify-content-between pl-5 pr-5'>
                 <div className='logo'>
                     <img src={angLogo} className='img img-fluid' alt='Apply now global logo'/>
                 </div>
-                <div className='d-flex '>
+                <div className='d-none d-lg-flex '>
                     <div className='d-flex otherLogo'>
                         <img src={liveChat} alt='Live Chat' className='img img-fluid' /> 
                         <div> Live Chat</div>
@@ -86,7 +86,7 @@ const Header=(props)=>{
             </div> */}
 
             <div className='navBarItems'>
-            <Navbar light expand="md" className='navBarFull col-12 col-md-8 offset-md-2'>
+            <Navbar light expand="md" className='navBarFull col-12 col-lg-8 offset-lg-2'>
           <NavbarToggler onClick={toggle} className='ml-auto'/>
           <Collapse isOpen={navbarOpen} navbar>
                     <Nav navbar className="links">
