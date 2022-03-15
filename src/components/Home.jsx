@@ -229,8 +229,8 @@ const Home=()=>{
             </div>
             <div className='homeBody'>
                 <div className='whatToStudy'>
-                    <div className='whatToStudyCardBox'>
-                    <div className='heading pt-5'>
+                    <div className='whatToStudyCardBox '>
+                    <div className='heading pt-5 '>
                         <div className='text'>Unsure What To Study?</div>
                         <div className='smalltext'>HAVE A LOOK HERE...</div>
                         <div className='line'>
@@ -241,7 +241,7 @@ const Home=()=>{
                         {whatToStudy.map((item,idx)=>{
                             return(
                                 <>
-                                <div className={`fullCard col-12 col-sm-6 col-lg-4 p-3 ${((idx%2)==0)?"":""}`} key={idx}>
+                                <div className={`fullCard col-12 col-sm-6 col-lg-4  ${((idx%2)==0)?"":""}`} key={idx}>
                                     <div className={`${((idx%2)==0)?"yellowCard":"purpleCard"}`}>
                                     <div className='heading'>
                                         <div className='logo'>
