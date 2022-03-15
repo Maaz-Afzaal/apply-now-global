@@ -23,6 +23,7 @@ const Events=()=>{
     const [pages,setPages]=useState(null)
     const [currentPage,setCurrentPage]=useState(1);
     const [search,setSearch]=useState('');
+    const [filteredArray,setFilteredArray]=useState([]);
     const [searchedArray,setSearchedArray]=useState([]);
     const [latest,setLatest]=useState(true);
     const [categories,setCategories]=useState([
@@ -354,14 +355,14 @@ const Events=()=>{
             //         },
     const getAllEvents=async ()=>{
         const {result,error}=await getData('/api/event/list')
-        const returnObj=(date,time,location,title,description,img)=>{
-            return {date,time,location,title,description,img}
+        const returnObj=(date,time,location,title,description,img,latest,trending)=>{
+            return {date,time,location,title,description,img,latest,trending}
         }
         if(result){
             const tempArray=[];
             console.log(result,"result is")
             result.body.map((item,index)=>{
-                tempArray.push(returnObj(item.date,item.time || "10Am - 7PM",item.universityId.city,item.title,item.description || "British University Fair",item.image))
+                tempArray.push(returnObj(item.date,item.time || "10Am - 7PM",item.universityId.city,item.title,item.universityId.name ,item.image,item.latest,item.tranding))
             })
             setEvents([...tempArray])
         }
@@ -370,20 +371,41 @@ const Events=()=>{
         }
         
     }
+    const filteredEvents=(value)=>{
+        
+        if(value){
+            const tempFilteredArray=[];
+            events.forEach((item,index)=>{
+                if(item.latest){
+                    tempFilteredArray.push(item);
+                }
+            })
+            setFilteredArray(tempFilteredArray)
+        }
+        else{
+            const tempFilteredArray=[];
+            events.forEach((item,index)=>{
+                if(item.trending){
+                    tempFilteredArray.push(item);
+                }
+            })
+            setFilteredArray(tempFilteredArray)
+        }
+    }
     const searchedCategories=(value)=>{
         if(value){
             const tmpArray=[];
-            categories.map((item)=>{
+            events.map((item)=>{
                 if(item.latest){
                     tmpArray.push(item)
                 }
             })
             setSearchedArray([...tmpArray])
-            console.log(searchedArray)
         }
+        
         else{
             const tmpArray=[];
-            categories.map((item)=>{
+            events.map((item)=>{
                 if(item.trending){
                     tmpArray.push(item);
                 }
@@ -395,8 +417,11 @@ const Events=()=>{
         getAllEvents();
     },[])
     useEffect(()=>{
+        filteredEvents(latest);
+    },[latest,events])
+    useEffect(()=>{
         searchedCategories(latest);
-    },[latest])
+    },[latest,events])
     useEffect(()=>{
         if((events.length/6)%1==0){
             setPages(events.length/6);
@@ -443,36 +468,36 @@ const Events=()=>{
                             </div>
                         </div>
                         <div className="row ">
-                        {events.map((event,index)=>{
+                        {filteredArray.map((event,index)=>{
                             if(index>EventsToShow-1 && index<EventsToShow+6){
                                 return(
                                     <div className="col-md-4 col-12 align-items-stretch d-flex ">
 
                                     <div className="blogCard d-flex flex-column " key={index}>
                                         {/* {console.log(blog)} */}
-                                        <div className="w-100">
-                                            <img src={event.img} alt={event.title} className="w-100" style={{borderRadius:"10px 10px 0 0"}}/>
+                                        <div className="w-100" style={{minHeight:"250px",maxHeight:"250px"}}>
+                                            <img src={event.img} alt={event.title} className="w-100" style={{borderRadius:"10px 10px 0 0",height:"100%",objectFit:"fill"}}/>
                                         </div>
                                         
                                         <div className="blogTitle">
                                             {event.title}
                                         </div>
-                                        <div className="blogDescription">
+                                        <div className="blogDescription mt-auto">
                                             {event.description}
                                         </div>
-                                        <div className="date">
+                                        <div className="date mt-auto">
                                             <img src={calender} alt="" className="img-img-fluid"/>
                                             <div className="text">
                                             {event.date}
                                             </div>
                                         </div>
-                                        <div className="date">
+                                        <div className="date mt-auto">
                                             <img src={watch} alt="" className="img-img-fluid"/>
                                             <div className="text">
                                             {event.time}
                                             </div>
                                         </div>
-                                        <div className="date">
+                                        <div className="date mt-auto">
                                             <img src={location} alt="" className="img-img-fluid"/>
                                             <div className="text">
                                             {event.location}
@@ -506,18 +531,21 @@ const Events=()=>{
                                     setLatest(false)
                                 }}>Trending</button>
                             </div>
+                            {searchedArray.length>0 && 
+                                searchedArray.map((item,index)=>{
+                                    return(
+                                        <div className="text" key={index}>
+                                            {item.title}
+                                            
+                                            {(index==searchedArray.length-1)?<></>:<>
+                                            <hr/>
+                                            </>}
+                                        </div>
+                                    )
+                                })
+                            }
+                            {searchedArray.length==0 && <div style={{color:"red",marginTop:"10px"}}>Sorry, We don't have any events to show</div>}
                             
-                            {searchedArray.map((item,index)=>{
-                                return(
-                                    <div className="text" key={index}>
-                                        {item.name}
-                                        
-                                        {(index==categories.length-1)?<></>:<>
-                                        <hr/>
-                                        </>}
-                                    </div>
-                                )
-                            })}
                         </div>
                     </div>
                     

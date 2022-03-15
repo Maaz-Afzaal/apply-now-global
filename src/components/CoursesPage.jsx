@@ -88,6 +88,7 @@ const Courses =()=>{
                 tempArray.push(tempData)
             })
             setCourseData([...tempArray])
+            console.log(courseData,"aaaaaaaaaaaaaaa")
         }
         else if(error){
             console.log("course page error is",error)
