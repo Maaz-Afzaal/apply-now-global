@@ -12,6 +12,15 @@
                 // -webkit-filter: blur(5px);
                 // -webkit-filter: brightness(30%);
                 max-width: 100%;
+                @media (max-width:768px) {
+                    max-width: unset;
+                    height: 275px !important;
+                    img{
+                    
+                        height: 100%;
+                        object-fit: fill;
+                    }
+                }
 
             }
             .content{
@@ -22,6 +31,9 @@
                 left: 5%;
                 right: 10%;
                 font-weight: 600;
+                @media (max-width:768px) {
+                    top: 10%;
+                }
                 .headerTextBold{
                     font-size: 50px;
                 line-height: 60px;

@@ -47,7 +47,7 @@ const CountryDropDown=(props)=>{
     return(
         <>
         <Dropdown isOpen={props.dropdownOpen} toggle={toggle} className="countryDropDown w-100" onMouseEnter={open}>
-        <DropdownToggle className="textLink" caret style={{background:'none',border:'none',color:'#6a2d87ff'}}  >
+        <DropdownToggle className="textLink" caret style={{background:'none',border:'none',color:`${props.country?"black":"#6a2d87ff"}`}}  >
           COUNTRY 
         </DropdownToggle>
         <DropdownMenu style={{width:"67vw",marginRight:"-1.8vw",background:"#6a2e88ff",borderRadius:"3px"}} className="body p-0 ">

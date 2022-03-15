@@ -387,7 +387,9 @@ const Blogs=()=>{
                 <div className="row">
                     <div className="col-12 col-md-9">
                         <div className="row heading">
-                            <div className="text">
+                            <div className="text pointer" onClick={()=>{
+                                getAllBlogs();
+                            }}>
                                 Articles
                             </div>
                             <div className="d-flex">

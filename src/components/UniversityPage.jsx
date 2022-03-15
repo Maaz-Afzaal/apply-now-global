@@ -123,7 +123,7 @@ const UniversityPage=()=>{
     return(
         <div className="universityPage">
             <div className="header">
-                <Header/>
+                <Header university/>
             </div>
             <div className="body">
                 <div className="header">

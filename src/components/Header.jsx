@@ -33,23 +33,27 @@ const Header=(props)=>{
                     <img src={angLogo} className='img img-fluid' alt='Apply now global logo'/>
                 </div>
                 <div className='d-none d-lg-flex '>
-                    <div className='d-flex otherLogo'>
+                    <div className='d-flex otherLogo pointer'>
                         <img src={liveChat} alt='Live Chat' className='img img-fluid' /> 
-                        <div> Live Chat</div>
+                        <div onClick={()=>{
+                            alert("Coming Soon...")
+                        }}> Live Chat</div>
                     </div>
                     <div className='verticalLine h-50'>
 
                     </div>
-                    <div className='d-flex otherLogo'>
+                    <div className='d-flex otherLogo pointer'>
                         <img src={fixAppointment} alt='Appointment' className='img img-fluid' /> 
-                        <div>Fix Appointment</div>
+                        <div onClick={()=>{
+                            alert("Coming Soon...")
+                        }}>Fix Appointment</div>
                     </div>
                     <div className='verticalLine h-50'>
 
                     </div>
-                    <div className='d-flex otherLogo'>
+                    <div className='d-flex otherLogo pointer' >
                         <img src={email} alt='email' className='img img-fluid' /> 
-                        <div>Email</div>
+                        <a href="mailto:support@applynowglobal.com" style={{color:"black",textDecoration:"none"}}>Email</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +98,7 @@ const Header=(props)=>{
                         <NavLink href="/" className={`textLink ${props.home?"activeNavbarItem":""}`}>HOME</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/story" className={`textLink ${props.story?"activeNavbarItem":""}`}>OUR STORY</NavLink>
+                        <NavLink href="/university/harvarduniversity" className={`textLink ${props.university?"activeNavbarItem":""}`}>UNIVERSITY</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink href="/events" className={`textLink ${props.events?"activeNavbarItem":""}`}>NEWS/EVENTS</NavLink>
@@ -103,13 +107,13 @@ const Header=(props)=>{
                         <NavLink href="/blogs" className={`textLink ${props.blogs?"activeNavbarItem":""}`}>BLOG</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/guidance" className={`textLink ${props.guidance?"activeNavbarItem":""}`}>GUIDANCE</NavLink>
+                        <NavLink href="/courses" className={`textLink ${props.courses?"activeNavbarItem":""}`}>COURSES</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/opportunity/" className={`textLink ${props.opportunity?"activeNavbarItem":""}`}>OPPORTUNITY</NavLink>
+                        <NavLink href="/faqs/" className={`textLink ${props.faqs?"activeNavbarItem":""}`}>FAQs</NavLink>
                     </NavItem>
                     <NavItem className='d-flex align-items-center'>
-                        <CountryDropDown setDropDownOpen={setDropDownOpen} dropdownOpen={dropdownOpen} />
+                        <CountryDropDown setDropDownOpen={setDropDownOpen} dropdownOpen={dropdownOpen} country={props.country}/>
                     </NavItem>
                     </Nav>
                 </Collapse>

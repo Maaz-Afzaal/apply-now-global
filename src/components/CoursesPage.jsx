@@ -100,7 +100,7 @@ const Courses =()=>{
     return(
         <div className='courses'>
             <div className='header'>
-                <Header/>
+                <Header courses/>
                 <HomeHeader/>
             </div>
             <div className='coursesBody'>

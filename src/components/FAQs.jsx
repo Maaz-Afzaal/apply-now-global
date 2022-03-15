@@ -124,7 +124,7 @@ const Faqs=()=>{
     return(
         <div className="faq">
             <div className="header">
-                <Header/>
+                <Header faqs/>
             </div>
             <div className="body">
                 <div className="header">
@@ -139,7 +139,7 @@ const Faqs=()=>{
                             <div className="square"></div>
                             </div>
                             
-                            <div className="headerText">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                            <div className="headerText d-none d-md-inline">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
                             volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</div>
                             
                             

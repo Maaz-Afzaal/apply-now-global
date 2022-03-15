@@ -121,20 +121,31 @@ const CountryPage=()=>{
                 }
             ]
             setStudentLife([...tempArray]);
+            
         }
+        else{
+            
+            const tempArray=[{
+                heading:`Coming Soon...`,
+                content:[],
+                list:[],
+            }]
+            setStudentLife([...tempArray]);
+        }
+        
     },[countryName])
     return(
         <div className="countryPage">
             <div className="header">
                 <div className="">
-                    <Header/>
+                    <Header country={true}/>
                 </div>
                 <div className="content">
                     <div className="image">
                         <img src={header1} alt="" className="img img-fluid blurImage"/>
                     </div>
                     <div className="text">
-                    Study In {countryName}
+                    Study In {param.countryname}
                     <Lines color={"yellow"}/>
                     </div>
                    
@@ -143,7 +154,8 @@ const CountryPage=()=>{
             <div className="countryPageBody">
                 <div className="tabs  ">
                     <div className={`col-3 pointer ${(activeTab===1)?"active":""}`} onClick={()=>{setActiveTab(1)}}>
-                        Student Life In {countryName}
+
+                        Student Life In {param.countryname}
                     </div>
                     <div className={`col-3 pointer ${(activeTab===2)?"active":""}`} onClick={()=>{alert("Coming soon...")}}>
                         Scholarships {'&'} Funding
@@ -154,7 +166,7 @@ const CountryPage=()=>{
                 </div>
                 <div className="restBody">
                     <div className="heading">
-                        Student Life In {countryName}
+                        Student Life In {param.countryname}
                     </div>
                     <div className="content">
                         {studentLife.map((item,index)=>{
