@@ -1,9 +1,17 @@
 import React,{useState} from "react";
-
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import uniLogo from '../../assets/images/uniLogo.png';
 import locationLogo from '../../assets/images/locationLogo.png';
 
 const CoursesCard=(props)=>{
+    const history=useHistory();
+    const universityPageLink=(universityName)=>{
+        let uniName=universityName.toLowerCase();
+            uniName=uniName.replace(/\s/gm, '');
+            uniName=uniName.replace(/\./g,"");
+            return uniName;
+    }
     return(
         <div className="coursesCard">
             {props.coursesData.map((item,index)=>{
@@ -11,7 +19,9 @@ const CoursesCard=(props)=>{
                     <>
                         <div className="fullCard">
                             <div className="imageBox">
-                                <img src={item.image} alt="univeristy logo" className="img img-fluid"/>
+                                <img src={item.image} alt="univeristy logo" className="img img-fluid pointer" onClick={()=>{
+                                                        history.push(`/university/${universityPageLink(item.universityName)}`)
+                                                    }}/>
                             </div>
                             <div className="restCard">
                                 <div className="top">
@@ -20,12 +30,12 @@ const CoursesCard=(props)=>{
                                             {item.courseName}
                                         </div>
                                         <div className="d-flex">
-                                     
-                                                <div className="location d-flex align-items-center">
-                                                    <img src={uniLogo} alt="" className="img img-fluid"/>
+                                                <Link to="/" style={{textDecoration:"none",color:"black"}}>
+                                                <div className="location d-flex align-items-center pointer">
+                                                    <img src={uniLogo} alt="" className="img img-fluid" />
                                                     <span>{item.universityName}</span>
                                                 </div>
-                                            
+                                                </Link>
                                             <div className="location">
                                                 <img src={locationLogo} alt="" className="img img-fluid "/>
                                                 <span>{item.countryName}</span>

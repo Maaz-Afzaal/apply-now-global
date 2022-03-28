@@ -145,7 +145,7 @@ const CountryPage=()=>{
                         <img src={header1} alt="" className="img img-fluid blurImage"/>
                     </div>
                     <div className="text">
-                    Study In {param.countryname}
+                    Study In {param.countryname.toUpperCase()}
                     <Lines color={"yellow"}/>
                     </div>
                    
@@ -166,7 +166,7 @@ const CountryPage=()=>{
                 </div>
                 <div className="restBody">
                     <div className="heading">
-                        Student Life In {param.countryname}
+                        Student Life In {param.countryname.toUpperCase()}
                     </div>
                     <div className="content">
                         {studentLife.map((item,index)=>{
@@ -180,7 +180,7 @@ const CountryPage=()=>{
                                     {item.content.map((i,a)=>{
                                         return(
                                             <>
-                                                <p key={a}>
+                                                <p key={a} style={{textAlign:"justify"}}>
                                                     {i}
                                                 </p>
                                             </>
@@ -192,7 +192,7 @@ const CountryPage=()=>{
                                             {item?.list.map((i,a)=>{
                                                 return(
                                                     <>
-                                                        <li>{i}</li>
+                                                        <li style={{textAlign:"justify"}}>{i}</li>
                                                     </>
                                                 )
                                             })}

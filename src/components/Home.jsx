@@ -23,6 +23,7 @@ import { getData } from '../utilities';
 
 
 const Home=()=>{
+    const [loading,setLoading]=useState(true);
     const whatToStudyCardImages=[
         computerScienceLogo,businessLogo,socialLogo,scienceLogo,healthLogo,engineeringLogo
     ]
@@ -197,7 +198,8 @@ const Home=()=>{
                     tempArrayForCourse.push(getObj(whatToStudyCardImages[idx],departName,tempArray));
                 })
                 setWhatToStudy([...tempArrayForCourse]);
-                console.log("what to stude",tempArrayForCourse)
+                setLoading(false)
+                // console.log("what to stude",tempArrayForCourse)
                 
             }
             else if(error){
@@ -238,7 +240,12 @@ const Home=()=>{
                         </div>
                     </div>
                     <div className='whatToStudyCard row'>
-                        {whatToStudy.map((item,idx)=>{
+                    {loading && 
+                        <div className="w-100 text-center">
+
+                            <div className="spinner-border mt-5"></div></div>
+                        }
+                        {!loading && whatToStudy.map((item,idx)=>{
                             return(
                                 <>
                                 <div className={`fullCard col-12 col-sm-6 col-lg-4  ${((idx%2)==0)?"":""}`} key={idx}>

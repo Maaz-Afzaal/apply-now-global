@@ -19,6 +19,7 @@ import location from '../assets/images/location.png';
 
 
 const Events=()=>{
+    const [loading,setLoading]=useState(true);
     const [EventsToShow,setEventsToShow]=useState(null);
     const [pages,setPages]=useState(null)
     const [currentPage,setCurrentPage]=useState(1);
@@ -365,6 +366,7 @@ const Events=()=>{
                 tempArray.push(returnObj(item.date,item.time || "10Am - 7PM",item.universityId.city,item.title,item.universityId.name ,item.image,item.latest,item.tranding))
             })
             setEvents([...tempArray])
+            setLoading(false)
         }
         else{
             console.log("error is ",error);
@@ -390,7 +392,9 @@ const Events=()=>{
                 }
             })
             setFilteredArray(tempFilteredArray)
+            
         }
+        
     }
     const searchedCategories=(value)=>{
         if(value){
@@ -468,7 +472,12 @@ const Events=()=>{
                             </div>
                         </div>
                         <div className="row ">
-                        {filteredArray.map((event,index)=>{
+                        {loading && 
+                        <div className="w-100 text-center">
+
+                            <div className="spinner-border mt-5"></div></div>
+                        }
+                        {!loading && filteredArray.map((event,index)=>{
                             if(index>EventsToShow-1 && index<EventsToShow+6){
                                 return(
                                     <div className="col-md-4 col-12 align-items-stretch d-flex ">

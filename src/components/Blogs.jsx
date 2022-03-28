@@ -32,6 +32,7 @@ const textLimit=(text)=>{
 
 
 const Blogs=()=>{
+    const [loading,setLoading]=useState(true);
     const [blogToShow,setBlogsToShow]=useState(null);
     const [pages,setPages]=useState(null)
     const [currentPage,setCurrentPage]=useState(1);
@@ -322,7 +323,7 @@ const Blogs=()=>{
             })
             
             setCategories([...categoryArrayWithCounts])
-            
+            setLoading(false)
         }
         else{
             console.log("blogs error is",error)
@@ -374,7 +375,10 @@ const Blogs=()=>{
         setCurrentPage(nextValue);
     }
     return(
-        <div className="blog">
+        <>
+        
+        
+            <div className="blog">
             <div className="header">
                 <div>
                     <Header blogs/>
@@ -400,12 +404,17 @@ const Blogs=()=>{
                             </div>
                         </div>
                         <div className="row ">
-                        {blogs.map((blog,index)=>{
+                        {loading && 
+                        <div className="w-100 text-center">
+
+                            <div className="spinner-border mt-5"></div></div>
+                        }
+                        {!loading && blogs.map((blog,index)=>{
                             if(index>blogToShow-1 && index<blogToShow+6){
                                 return(
                                     <div className="col-12 col-md-6 col-lg-4 d-flex align-items-strech">
                                     <div className="blogCard" key={index}>
-                                        {/* {console.log(blog)} */}
+
                                         <div className="w-100" style={{height:"250px"}}>
                                             <img src={blog.img} alt={blog.title} className="w-100" style={{height:"250px",borderRadius:"10px 10px 0 0"}}/>
                                         </div>
@@ -415,7 +424,7 @@ const Blogs=()=>{
                                         <div className="blogTitle">
                                             {blog.title}
                                         </div>
-                                        <div className="blogDescription">
+                                        <div className="blogDescription" >
                                             {textLimit(blog.description)}
                                         </div>
                                         <div className="extra pointer" onClick={()=>{
@@ -485,6 +494,9 @@ const Blogs=()=>{
                 <Footer/>
             </div>
         </div>
+        
+        </>
+        
     )
 }
 export default Blogs;

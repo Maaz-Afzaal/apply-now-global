@@ -97,9 +97,9 @@ const Header=(props)=>{
                     <NavItem>
                         <NavLink href="/" className={`textLink ${props.home?"activeNavbarItem":""}`}>HOME</NavLink>
                     </NavItem>
-                    <NavItem>
+                    {/* <NavItem>
                         <NavLink href="/university/harvarduniversity" className={`textLink ${props.university?"activeNavbarItem":""}`}>UNIVERSITY</NavLink>
-                    </NavItem>
+                    </NavItem> */}
                     <NavItem>
                         <NavLink href="/events" className={`textLink ${props.events?"activeNavbarItem":""}`}>NEWS/EVENTS</NavLink>
                     </NavItem>

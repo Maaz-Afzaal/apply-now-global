@@ -40,7 +40,7 @@ const CardFaq=(props)=>{
                             </div>
                         </div>
                         <Collapse isOpen={collapse[index]}>
-                        <div className="answer" >
+                        <div className="answer" style={{textAlign:"justify"}} >
                             {item.answer}
                         </div>
                         </Collapse>

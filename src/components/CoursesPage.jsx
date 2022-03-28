@@ -76,6 +76,7 @@ const Courses =()=>{
     // ])
 
     const [courseData,setCourseData]=useState([]);
+    const [loading,setLoading]=useState(true);
     const getCoursesData=async ()=>{
         const {result,error}=await getData("/api/course/requirement/list");
         const getObj=(image,courseName,universityName,countryName,tutionFee,applicationFee,inTake,duration,ETS)=>{
@@ -88,7 +89,8 @@ const Courses =()=>{
                 tempArray.push(tempData)
             })
             setCourseData([...tempArray])
-            console.log(courseData,"aaaaaaaaaaaaaaa")
+            setLoading(false);
+            // console.log(courseData,"aaaaaaaaaaaaaaa")
         }
         else if(error){
             console.log("course page error is",error)
@@ -104,7 +106,14 @@ const Courses =()=>{
                 <HomeHeader/>
             </div>
             <div className='coursesBody'>
-                <CoursesCard coursesData={courseData}/>
+            {loading && 
+                        <div className="w-100 text-center">
+
+                            <div className="spinner-border mt-5"></div></div>
+                        }
+                {!loading && <CoursesCard coursesData={courseData}/>
+                }
+                
             </div>
             <div className='footer'>
                 <Footer/>
