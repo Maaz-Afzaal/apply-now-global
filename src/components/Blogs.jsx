@@ -296,7 +296,8 @@ const Blogs=()=>{
         if(result){
             const tempArray=[];
             const tempCategoryArray=[];
-            result.body.map((item,index)=>{
+            console.log(result)
+            result.body.blog.map((item,index)=>{
                 tempArray.push(getObj(item.date,item.title,item.body,item.image,item.category))
                 tempCategoryArray.push(item.category)
                 
@@ -345,7 +346,7 @@ const Blogs=()=>{
                 return item.name.toLowerCase().includes(value.toLowerCase());
             })
             setSearchedArray([...tmpArray])
-            console.log(searchedArray)
+
         }
             
         
@@ -413,7 +414,7 @@ const Blogs=()=>{
                             if(index>blogToShow-1 && index<blogToShow+6){
                                 return(
                                     <div className="col-12 col-md-6 col-lg-4 d-flex align-items-strech">
-                                    <div className="blogCard" key={index}>
+                                    <div className="blogCard w-100" key={index}>
 
                                         <div className="w-100" style={{height:"250px"}}>
                                             <img src={blog.img} alt={blog.title} className="w-100" style={{height:"250px",borderRadius:"10px 10px 0 0"}}/>

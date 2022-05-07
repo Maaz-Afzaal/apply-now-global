@@ -362,7 +362,7 @@ const Events=()=>{
         if(result){
             const tempArray=[];
             console.log(result,"result is")
-            result.body.map((item,index)=>{
+            result.body.event.map((item,index)=>{
                 tempArray.push(returnObj(item.date,item.time || "10Am - 7PM",item.universityId.city,item.title,item.universityId.name ,item.image,item.latest,item.tranding))
             })
             setEvents([...tempArray])
