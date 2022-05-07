@@ -223,6 +223,7 @@ const Home=()=>{
     }
     useEffect(()=>{
         getWhatToStudyData();
+        
     },[])
     return(
         <div className='home'>
