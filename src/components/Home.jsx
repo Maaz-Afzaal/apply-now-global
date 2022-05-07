@@ -189,7 +189,7 @@ const Home=()=>{
                 }
                 tempArrayForDepart.map((departName,idx)=>{
                     const tempArray=[]
-                    result.body.map((course,index)=>{
+                    result.body.list.map((course,index)=>{
                         if(course.departId.name==departName){
                             tempArray.push(course.title)
                         }
@@ -210,11 +210,12 @@ const Home=()=>{
         const {result,error}=await getData("/api/course/department/list")
         if(result){
             const tempArrayForDepart=[];
-            
-            result.body.map((depart,index)=>{
+            console.log(result.body.list)
+            result.body.list.map((depart,index)=>{
                 tempArrayForDepart.push(depart.name);    
             })
             getWhatToStudyCourses(tempArrayForDepart);
+            
         }
         else if(error){
             console.log("error is",error)
@@ -222,7 +223,7 @@ const Home=()=>{
     }
     useEffect(()=>{
         getWhatToStudyData();
-    })
+    },[])
     return(
         <div className='home'>
             <div className='header'>

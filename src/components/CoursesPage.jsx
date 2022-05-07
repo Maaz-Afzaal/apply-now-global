@@ -84,7 +84,8 @@ const Courses =()=>{
         }
         if(result){
             const tempArray=[];
-            result.body.map((item,index)=>{
+
+            result.body.list.map((item,index)=>{
                 const tempData=getObj(item.universityId.logo,item.coursetId.title,item.universityId.name,item.universityId.city,item.tutionFee,item.applicationFee,item.inTake,item.duration,item.ETS.toString())
                 tempArray.push(tempData)
             })
