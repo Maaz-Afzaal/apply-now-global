@@ -12,7 +12,7 @@
 @import './assets/styles/events';
 @import './assets/styles/countryPage';
 @import './assets/styles/coursesPage';
-
+@import './assets/styles/aboutus';
 
 .App {
   text-align: center;
@@ -37,9 +37,9 @@
 .blurImage{
   width:100vw;
   // filter: blur(5px);
-  filter: brightness(1%);
+  // filter: brightness(1%);
   // -webkit-filter: blur(0px);
-  -webkit-filter: brightness(1%);
+  // -webkit-filter: brightness(1%);
 }
 .pointer{
   cursor: pointer;

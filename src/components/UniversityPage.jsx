@@ -95,9 +95,9 @@ const UniversityPage=()=>{
             const getObj=(image,name,flag)=>{
                 return {image,name,flag}
             }
-            console.log("params are",param);
+            console.log("params are",result);
             
-            result.body.map((item,index)=>{
+            result.body.university.map((item,index)=>{
                 let uniName=item.name.toLowerCase();
                 uniName=uniName.replace(/\s/gm, '');
                 uniName=uniName.replace(/\./g,"");

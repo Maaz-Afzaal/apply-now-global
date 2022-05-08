@@ -3,20 +3,28 @@
         position: relative;
         width:100vw;
         height: 90vh;
+        @media(max-width:767px){
+            height: 110vh;
+        }
         img{
             height:90vh;
             object-fit: cover;
+            @media(max-width:767px){
+                height: 110vh;
+            }
         }
         .absolteImage{
             img{
                 // position: absolute;
                 // z-index: -2;
+                
                 left: 0;
                 top: 0;
                 // width: 10%;
             }
         }
         .content{
+            
             // position: absolute;
             // top:40%;
             .courses{
@@ -138,6 +146,7 @@
                 }
                
             }
+         
         }
     }
     
