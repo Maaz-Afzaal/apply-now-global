@@ -235,8 +235,8 @@ const Home=()=>{
                 <div className='whatToStudy'>
                     <div className='whatToStudyCardBox '>
                     <div className='heading pt-5 '>
-                        <div className='text'>Unsure What To Study?</div>
-                        <div className='smalltext'>HAVE A LOOK HERE...</div>
+                        <div className='text century-font-bold'>Unsure What To Study?</div>
+                        <div className='smalltext century-font'>HAVE A LOOK HERE...</div>
                         <div className='line'>
                             <Lines color={"purple"}/>
                         </div>
@@ -286,11 +286,11 @@ const Home=()=>{
                     </div>
                     <div className='desitnations row'>
                         <div className='heading w-100'>
-                            <div className='smallText'>
+                            <div className='smallText century-font'>
                                 COUNTRIES WE OFFER SUPPORT
                             </div>
                             <div className='d-flex justify-content-between row'>
-                                <div className=' text col-8 offset-2'>
+                                <div className=' text col-8 offset-2 century-font-bold'>
                                         Favorite International Study Destinations
                                 </div>
                                 <div className='align-self-end col-2 ml-auto d-flex justify-content-end'>
@@ -315,7 +315,7 @@ const Home=()=>{
                     <div className='topRankedUniversities row'>
                         <div className='heading w-100'>
                         <div className='d-flex justify-content-between'>
-                                <div className='text'>
+                                <div className='text century-font-bold'>
                                     Top Ranked Universities
                                 </div>
                                 <div className='align-self-end'>
@@ -332,13 +332,13 @@ const Home=()=>{
                             </div>
                         </div>
                         <div className='topRankedUniversitiesBody w-100'>
-                            <CarouselComponent data={topRankedUniversities} itemsToShow={7} height={"200px"} color={"white"}/>
+                            <CarouselComponent data={topRankedUniversities} itemsToShow={6} height={"200px"} color={"white"}/>
                         </div>
                     </div>
                     <div className='topPathwayProviders row'>
                         <div className='heading w-100'>
                             <div className='d-flex justify-content-between'>
-                                <div className='text'>
+                                <div className='text century-font-bold'>
                                     Top Education Pathway Providers
                                 </div>
                                 <div className='align-self-end'>
@@ -363,7 +363,7 @@ const Home=()=>{
                             <img src={expertBackground} alt="background" className='img img-fluid backgroundimg'/>
                             <div className='other'>
                             <div className='heading'>
-                            <div className='text pt-5'>
+                            <div className='text pt-5 century-font-bold'>
                                 Connect With A Study Abroad Expert Now
                             </div>
                             <div className='line'>

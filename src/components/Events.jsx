@@ -461,7 +461,7 @@ const Events=()=>{
                 <div className="row">
                     <div className="col-12 col-md-9">
                         <div className="row heading">
-                            <div className="text">
+                            <div className="text century-font-bold">
                                 Events
                             </div>
                             <div className="d-flex">
@@ -488,32 +488,32 @@ const Events=()=>{
                                             <img src={event.img} alt={event.title} className="w-100" style={{borderRadius:"10px 10px 0 0",height:"100%",objectFit:"fill"}}/>
                                         </div>
                                         
-                                        <div className="blogTitle">
+                                        <div className="blogTitle century-font">
                                             {event.title}
                                         </div>
-                                        <div className="blogDescription mt-auto">
+                                        <div className="blogDescription mt-auto century-font">
                                             {event.description}
                                         </div>
-                                        <div className="date mt-auto">
+                                        <div className="date mt-auto century-font">
                                             <img src={calender} alt="" className="img-img-fluid"/>
-                                            <div className="text">
+                                            <div className="text century-font">
                                             {event.date}
                                             </div>
                                         </div>
                                         <div className="date mt-auto">
                                             <img src={watch} alt="" className="img-img-fluid"/>
-                                            <div className="text">
+                                            <div className="text century-font">
                                             {event.time}
                                             </div>
                                         </div>
                                         <div className="date mt-auto">
                                             <img src={location} alt="" className="img-img-fluid"/>
-                                            <div className="text">
+                                            <div className="text century-font">
                                             {event.location}
                                             </div>
                                         </div>
                                         <div className="extra" style={{marginTop:"auto"}}>
-                                            <button className="mb-3 mt-2">
+                                            <button className="mb-3 mt-2 century-font">
                                                 Read More
                                             </button>
                                             
@@ -528,11 +528,11 @@ const Events=()=>{
                     </div>
                     </div>
                     <div className="col-12 col-md-3 categories">
-                        <div className="heading">
+                        <div className="heading century-font-bold">
                             Recent News
                         </div>
                         <div className="box">
-                            <div className="searchBox">
+                            <div className="searchBox century-font">
                                 <button className={`btn btn-md btn1 w-50 ${latest?"active":""}`} onClick={()=>{
                                     setLatest(true)
                                 }}>Latest</button>
@@ -543,7 +543,7 @@ const Events=()=>{
                             {searchedArray.length>0 && 
                                 searchedArray.map((item,index)=>{
                                     return(
-                                        <div className="text" key={index}>
+                                        <div className="text century-font" key={index}>
                                             {item.title}
                                             
                                             {(index==searchedArray.length-1)?<></>:<>

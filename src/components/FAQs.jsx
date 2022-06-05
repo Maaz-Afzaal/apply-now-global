@@ -126,7 +126,7 @@ const Faqs=()=>{
             <div className="header">
                 <Header faqs/>
             </div>
-            <div className="body">
+            <div className="body century-font">
                 <div className="header">
                     <div className="headerImage">
                         <img src={faqImage} alt="FAQs" className="img img-fluid blurImage"/>

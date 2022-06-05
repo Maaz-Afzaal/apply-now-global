@@ -88,7 +88,7 @@ const Footer=()=>{
                         <img src="https://www.freeiconspng.com/uploads/--in-blow-to-crafty-brand-odes-instagram-adopts-minimalist-new-logo-16.jpg" alt="Instagram from freeiconspng" className='social img img-fluid'/>
                         </div>
                     </div>
-                    <div className='col-9'>
+                    {/* <div className='col-9'>
                         <div className='row w-85 ml-2'>
                         <div className='line col-5'>
                             <hr className=''/>
@@ -107,27 +107,27 @@ const Footer=()=>{
                             <img src={partner} className="img img-fluid mt-2"/>
                             <img src={partner} className="img img-fluid mt-2"/>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className='bot row border border-light'>
                         <div className='col-12 col-md-6 text-left mb-3 mb-md-0'>
                         &#169;Copyright 2022 ApplyNowGlobal | Developed by <a href="https://www.extensasol.com/" target="_blank" style={{textDecoration:"none",color:"white"}}>EXTENSASOL</a>
                         </div>
-                        <div className='col-12 col-md-6'>
+                        <div className='col-12 col-md-6 d-none d-md-flex'>
                             <div className='d-flex w-100 justify-content-end row'>
-                            <div style={{borderRight:"1px solid white",}} className=' col-12 col-md-2 text-left text-md-center'>
+                            <div style={{borderRight:"1px solid white",}} className=' col-12 col-md-3 text-left text-md-right'>
                                 Disclaimer
                             </div>
                             
-                            <div style={{borderRight:"1px solid white",}} className='  col-12 col-md-2 text-left text-md-center'>
+                            <div style={{borderRight:"1px solid white",maxWidth:"fit-content"}} className='  col-12 col-md-3 text-left text-md-center'>
                                 Privacy Policy
                             </div>
                             
-                            <div style={{borderRight:"1px solid white",}} className='col-12 col-md-2 text-left text-md-center'> 
+                            <div style={{borderRight:"1px solid white",maxWidth:"fit-content"}} className='col-12 col-md-3 text-left text-md-center'> 
                                 Terms of Use
                             </div>
                            
-                            <div style={{borderRight:"0px solid white",}} className='col-12 col-md-2 text-left  pl-3'>
+                            <div style={{borderRight:"0px solid white",}} className='col-12 col-md-3 text-left  pl-3'>
                                 Blog
                             </div>
                             </div>

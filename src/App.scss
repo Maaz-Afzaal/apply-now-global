@@ -44,3 +44,24 @@
 .pointer{
   cursor: pointer;
 }
+
+.century-font {
+  font-family: "CenturyGothic";
+ }
+ .century-font-bold {
+  font-family: "CenturyGothicBold";
+ }
+ 
+@font-face {
+  font-family: "CenturyGothic";
+  src: local("CenturyGothic"),
+   url("./CenturyGothic.ttf") format("truetype");
+  // font-weight: 1000;
+  }
+
+  @font-face {
+    font-family: "CenturyGothicBold";
+    src: local("GothicBold"),
+     url("./GothicBold.TTF") format("truetype");
+    // font-weight: 1000;
+    }

@@ -106,7 +106,7 @@ const Courses =()=>{
                 <Header courses/>
                 <HomeHeader/>
             </div>
-            <div className='coursesBody'>
+            <div className='coursesBody century-font'>
             {loading && 
                         <div className="w-100 text-center">
 

@@ -388,7 +388,7 @@ const Blogs=()=>{
                     <img src={faqImage} alt="students" className="blurImage"/> 
                 </div>
             </div>
-            <div className="body">
+            <div className="body century-font">
                 <div className="row">
                     <div className="col-12 col-md-9">
                         <div className="row heading">

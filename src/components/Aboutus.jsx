@@ -7,7 +7,7 @@ const Aboutus=(props)=>{
 
     return(
         <>
-            <div className="aboutusPage">
+            <div className="aboutusPage ">
             <div className="header">
                 <div className="">
                     <Header aboutus={true}/>
@@ -23,7 +23,7 @@ const Aboutus=(props)=>{
                    
                 </div>
             </div>
-            <div className="body">
+            <div className="body century-font">
                 <div className="innerBody">
                 <div className="aboutus">
                     <div className="heading d-flex flex-column align-items-start mb-3"><h2>About Us</h2><Lines color={"yellow"}/></div>

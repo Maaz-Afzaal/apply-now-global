@@ -35,9 +35,7 @@ const Header=(props)=>{
                 <div className='d-none d-lg-flex '>
                     <div className='d-flex otherLogo pointer'>
                         <img src={liveChat} alt='Live Chat' className='img img-fluid' /> 
-                        <div onClick={()=>{
-                            alert("Coming Soon...")
-                        }}> Live Chat</div>
+                        <a style={{textDecoration:"none",color:"unset"}} target="blank" href="https://wa.me/447882348854"> Live Chat</a>
                     </div>
                     <div className='verticalLine h-50'>
 
@@ -53,7 +51,7 @@ const Header=(props)=>{
                     </div>
                     <div className='d-flex otherLogo pointer' >
                         <img src={email} alt='email' className='img img-fluid' /> 
-                        <a href="mailto:support@applynowglobal.com" style={{color:"black",textDecoration:"none"}}>Email</a>
+                        <a href="mailto:info@applynowglobal.com" style={{color:"black",textDecoration:"none"}}>Email</a>
                     </div>
                 </div>
             </div>
