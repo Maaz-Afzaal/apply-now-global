@@ -4,16 +4,13 @@ import {
     Collapse,
     Navbar,
     NavbarToggler,
-    NavbarBrand,
+
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem } from 'reactstrap';
+  } from 'reactstrap';
 
-import angLogo from '../assets/images/angLogo.png';
+import angLogo from '../assets/images/angLogo1.png';
 import email from '../assets/images/email.png';
 import fixAppointment from '../assets/images/fixAppointmentLogo.png';
 import liveChat from '../assets/images/liveChatLogo.png';
@@ -29,8 +26,8 @@ const Header=(props)=>{
     return (
         <div className='header'>
             <div className='navBar w-100 d-md-flex justify-content-between pl-5 pr-5'>
-                <div className='logo'>
-                    <img src={angLogo} className='img img-fluid' alt='Apply now global logo'/>
+                <div className='logo pt-md-2'>
+                    <img src={angLogo} alt='Apply now global logo'/>
                 </div>
                 <div className='d-none d-lg-flex '>
                     <div className='d-flex otherLogo pointer'>
