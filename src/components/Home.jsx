@@ -22,7 +22,7 @@ import { getData } from '../utilities';
 
 
 
-const Home=()=>{
+const Home=({filter,setFilter})=>{
     const [loading,setLoading]=useState(true);
     const whatToStudyCardImages=[
         computerScienceLogo,businessLogo,socialLogo,scienceLogo,healthLogo,engineeringLogo
@@ -229,7 +229,7 @@ const Home=()=>{
         <div className='home'>
             <div className='header'>
                 <Header home/>
-                <HomeHeader/>
+                <HomeHeader filter={filter} setFilter={setFilter}/>
             </div>
             <div className='homeBody'>
                 <div className='whatToStudy'>

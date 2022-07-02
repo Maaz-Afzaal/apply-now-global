@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useMemo} from 'react';
 
 import Header from './Header';
 import HomeHeader from './subComponents/HomeHeader';
@@ -6,7 +6,7 @@ import Footer from './Footer';
 import CoursesCard from './subComponents/CoursesCard';
 import { getData } from '../utilities';
 
-const Courses =()=>{
+const Courses =({filter,setFilter})=>{
     // const [courseData,setCourseData]=useState([
     //     {
     //         image:'https://www.hsconsultants.net/uploads/ranked-universities/02.png',
@@ -76,17 +76,18 @@ const Courses =()=>{
     // ])
 
     const [courseData,setCourseData]=useState([]);
+    const [filteredCourseData,setFilteredCourseData]=useState([]);
     const [loading,setLoading]=useState(true);
     const getCoursesData=async ()=>{
         const {result,error}=await getData("/api/course/requirement/list");
-        const getObj=(image,courseName,universityName,countryName,tutionFee,applicationFee,inTake,duration,ETS)=>{
-            return {image,courseName,universityName,countryName,tutionFee,applicationFee,inTake,duration,ETS}
+        const getObj=(image,courseName,universityName,countryName,tutionFee,applicationFee,inTake,duration,ETS,level)=>{
+            return {image,courseName,universityName,countryName,tutionFee,applicationFee,inTake,duration,ETS,level}
         }
         if(result){
             const tempArray=[];
-
+            console.log(result);
             result.body.list.map((item,index)=>{
-                const tempData=getObj(item.universityId.logo,item.coursetId.title,item.universityId.name,item.universityId.city,item.tutionFee,item.applicationFee,item.inTake,item.duration,item.ETS.toString())
+                const tempData=getObj(item.universityId.logo,item.coursetId.title,item.universityId.name,item.universityId.city,item.tutionFee,item.applicationFee,item.inTake,item.duration,item.ETS.toString(),item.level)
                 tempArray.push(tempData)
             })
             setCourseData([...tempArray])
@@ -97,6 +98,23 @@ const Courses =()=>{
             console.log("course page error is",error)
         }
     }
+    useMemo(()=>{
+        if(filter.filterApplied){
+            if(filter.course){
+                const tempArray=[];
+                courseData.map((item,index)=>{
+                    if(item.courseName.toLowerCase().includes(filter.course.toLowerCase()) && item.countryName===filter.country && item?.level===filter.level ){
+                        tempArray.push(item)
+                    }
+                });
+                setFilteredCourseData([...tempArray]);
+
+            }
+        }
+        else{
+            setFilteredCourseData([...courseData])
+        }
+    },[courseData,filter])
     useEffect(()=>{
         getCoursesData();
     },[])
@@ -104,7 +122,7 @@ const Courses =()=>{
         <div className='courses'>
             <div className='header'>
                 <Header courses/>
-                <HomeHeader/>
+                <HomeHeader filter={filter} setFilter={setFilter}/>
             </div>
             <div className='coursesBody century-font'>
             {loading && 
@@ -112,7 +130,7 @@ const Courses =()=>{
 
                             <div className="spinner-border mt-5"></div></div>
                         }
-                {!loading && <CoursesCard coursesData={courseData}/>
+                {!loading && <CoursesCard coursesData={filteredCourseData} />
                 }
                 
             </div>

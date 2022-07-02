@@ -9,20 +9,32 @@ import Events from './components/Events';
 import CountryPage from './components/CountryPage';
 import Courses from './components/CoursesPage';
 import Aboutus from './components/Aboutus';
+import React,{useState} from 'react';
 
 function App() {
+  const [filter,setFilter]=useState({
+    filterApplied:false,
+    university:null,
+    course:null,
+    level:null,
+    country:null,
+  })
   return (
     <div className="App ">
       <Router>
         <Switch>
-          <Route exact path='/' component={Home} />
+          <Route exact path='/'>
+            <Home filter={filter} setFilter={setFilter}/>
+          </Route>
           <Route path='/blogs' component={Blogs} />
           <Route path='/university/:universityname' component={UniversityPage} />
           <Route path='/faqs' component={Faqs} />
           <Route path='/aboutus' component={Aboutus} />
           <Route path='/events' component={Events} />
           <Route path='/country/:countryname' component={CountryPage} />
-          <Route path='/courses' component={Courses} />
+          <Route path='/courses'>
+            <Courses filter={filter} setFilter={setFilter}/>
+          </Route>
           {/* <Route path='/universitypage' component={UniversityPage}/> */}
         </Switch>
 
