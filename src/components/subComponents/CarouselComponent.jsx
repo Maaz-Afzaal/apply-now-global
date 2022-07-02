@@ -4,9 +4,10 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useState } from "react/cjs/react.development";
 import { Button } from "reactstrap";
-
+import { useHistory } from "react-router-dom";
 const CarouselComponent =(props)=>{
     const [loading,setLoading]=useState(false);
+    const history=useHistory();
     const responsive = {
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 3000 },
@@ -51,7 +52,11 @@ const CarouselComponent =(props)=>{
               >
                 {props.data.map((item, indx) => {
                   return (  
-                    <div className="m-0 carouselCard " key={indx} style={{height:`calc(${props.height} + 75px)`}}>
+                    <div className="m-0 carouselCard pointer" key={indx} style={{height:`calc(${props.height} + 75px)`}} onClick={()=>{
+                      if(item.link){
+                        history.push(item.link)
+                      }
+                    }}>
                         <div className="h-100">
                             
                         <img

@@ -97,84 +97,103 @@ const Home=({filter,setFilter})=>{
     ])
     const [topRankedUniversities,setTopRankedUniversities]=useState([
         {
-            image:require('../assets/images/home/TopUni1.png')
+            image:"https://www.hsconsultants.net/uploads/ranked-universities/01.png",
+            link:"/university/creativetechnologyeducators"
         },
         {
-            image:require('../assets/images/home/TopUni2.png')
+            image:"https://www.hsconsultants.net/uploads/ranked-universities/02.png",
+            link:"/university/charlessturtuniversity"
+
         },
         {
-            image:require('../assets/images/home/TopUni3.png')
+            image:"https://www.hsconsultants.net/uploads/ranked-universities/03.png",
+            link:"/university/universityofaustralia"
+
         },
         {
-            image:require('../assets/images/home/TopUni4.png')
+            image:"https://www.hsconsultants.net/uploads/ranked-universities/04.png",
+            ink:"/university/curtincollege"
         },
         {
-            image:require('../assets/images/home/TopUni5.png')
+            image:"https://www.hsconsultants.net/uploads/ranked-universities/05.png",
+            link:"/university/curtinuniversity"
         },
         {
-            image:require('../assets/images/home/TopUni6.png')
+            image:"https://www.hsconsultants.net/uploads/ranked-universities/06.png",
+            link:"/university/dekincollege"
         },
         {
-            image:require('../assets/images/home/TopUni7.png')
+            image:"https://www.hsconsultants.net/uploads/ranked-universities/07.png",
+            link:"/university/dekinuniversity"
         },
         {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/08.png"
+            image:"https://www.hsconsultants.net/uploads/ranked-universities/08.png",
+            link:"/university/ecu"
         },
         {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/09.png"
+            image:"https://www.hsconsultants.net/uploads/ranked-universities/09.png",
+            link:"/university/edithcowancollege"
         },
         {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/10.png"
+            image:"https://www.hsconsultants.net/uploads/ranked-universities/10.png",
+            link:"/university/eit"
         },
-        {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/11.png"
-        },
-        {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/12.png"
-        },
-        {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/13.png"
-        },
-        {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/14.png"
-        },
-        {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/15.png"
-        },
-        {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/16.png"
-        },
-        {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/17.png"
-        },
-        {
-            image:"https://www.hsconsultants.net/uploads/ranked-universities/18.png"
-        }
+        // {
+        //     image:"https://www.hsconsultants.net/uploads/ranked-universities/11.png",
+        //     link:"/university/creativetechnologyeducators"
+        // },
+        // {
+        //     image:"https://www.hsconsultants.net/uploads/ranked-universities/12.png",link:"/university/creativetechnologyeducators"
+        // },
+        // {
+        //     image:"https://www.hsconsultants.net/uploads/ranked-universities/13.png",link:"/university/creativetechnologyeducators"
+        // },
+        // {
+        //     image:"https://www.hsconsultants.net/uploads/ranked-universities/14.png",link:"/university/creativetechnologyeducators"
+        // },
+        // {
+        //     image:"https://www.hsconsultants.net/uploads/ranked-universities/15.png",link:"/university/creativetechnologyeducators"
+        // },
+        // {
+        //     image:"https://www.hsconsultants.net/uploads/ranked-universities/16.png",link:"/university/creativetechnologyeducators"
+        // },
+        // {
+        //     image:"https://www.hsconsultants.net/uploads/ranked-universities/17.png",link:"/university/creativetechnologyeducators"
+        // },
+        // {
+        //     image:"https://www.hsconsultants.net/uploads/ranked-universities/18.png",link:"/university/creativetechnologyeducators"
+        // }
         
     ])
     const [destinationData,setDestinationsData]=useState([
         {
             image:require('../assets/images/home/UKmap.png'),
+            link:"/country/uk",
             name:"UK"
         },
         {
             image:require('../assets/images/home/IrelandMap.png'),
+            link:"/country/ireland",
             name:"Ireland"
         },
         {
             image:require('../assets/images/home/USAmap.png'),
+            link:"/country/us",
             name:"USA"
         },
         {
             image:require('../assets/images/home/CanadaMap.png'),
+            link:"/country/canada",
             name:"Canada"
         },
         {
             image:require('../assets/images/home/NZmap.png'),
+            link:"/country/newzealand",
             name:"New Zealand"
         },
         {
             image:require('../assets/images/home/AustraliaMap.png'),
+            link:"/country/australia",
             name:"Australia"
         }
     ])

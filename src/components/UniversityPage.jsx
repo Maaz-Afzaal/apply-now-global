@@ -86,7 +86,7 @@ const UniversityPage=()=>{
         heading:"Scholarship Opportunity",
     }
     ])
-
+    const [isUniFound,setIsUniFound]=useState(false);
     const [universityHeader,setUniversityHeader]=useState([]);
     const getUniversityName=async ()=>{
         const {result,error}=await getData("/api/university/list");
@@ -103,12 +103,13 @@ const UniversityPage=()=>{
                 uniName=uniName.replace(/\./g,"");
                 if(uniName===param.universityname){
                     // console.log("uniname is",uniName)
+                    setIsUniFound(true)
                     tempArray.push(getObj(item.logo,item.name,item.countryId.flag));
                 } 
             })
-            console.log("temp array is",tempArray)
+            // console.log("temp array is",tempArray)
             setUniversityHeader(...tempArray);
-            console.log("temp array is",universityHeader)
+            // console.log("temp array is",universityHeader)
         }
         else if(error){
             console.log("error to get university data ",error)
@@ -130,8 +131,9 @@ const UniversityPage=()=>{
                     <div className="imgContainer">
                         <img src={header1} alt="university" className="headerImage img img-fluid blurImage"></img>
                     </div>
-                    
-                    <div className="universityHeading">
+                    {
+                        isUniFound && <>
+                             <div className="universityHeading">
                                 <div className="d-flex flex-column flex-md-row w-100">
                                     <div className="pl-3 pr-3">
                                         <img src={universityHeader.image} alt={universityHeader.name} className="img img fluid uniLogoImage"/>
@@ -163,8 +165,13 @@ const UniversityPage=()=>{
                                 </div>
                        
                     </div>
+                        </>
+                    }
+                   
                 </div>
-                <div className="body">
+                {
+                    isUniFound && <>
+                    <div className="body">
                     {universityDetails.map((item)=>{
                         return(
                             (!item.isList)?
@@ -180,6 +187,15 @@ const UniversityPage=()=>{
                         
                     })}
                 </div>
+                </>
+                }
+                {
+                    !isUniFound && <>
+                        <div style={{height:"300px"}} className="d-flex align-items-center justify-content-center">
+                            <h1>No data found for this University</h1>
+                        </div>
+                    </>
+                }
             </div>
             <div className="footer">
                 <Footer/>
