@@ -14,7 +14,7 @@ import { useHistory } from "react-router-dom";
 
 
 const HomeHeader=({filter,setFilter})=>{
-    const [values,setValues]=useState({courses:true,level:'',country:'',selectCourse:'',selectUniversity:""});
+    const [values,setValues]=useState({courses:true,level:'',country:'',selectCourse:filter?.course || null,selectUniversity:""});
     const [country,setCountry]=useState([]);
     const [universities,setUniversities]=useState([]);
     const [unFilteredUniversities,setUnFilteredUniversities]=useState([]);
@@ -30,6 +30,8 @@ const HomeHeader=({filter,setFilter})=>{
                     course:values.selectCourse,
                     level:values.level,
                     country:values.country,
+                    filterBy:"course",
+
                 }
                 setFilter({...tempObj});
                 if(window.location.pathname!=="/courses"){
@@ -105,16 +107,17 @@ const HomeHeader=({filter,setFilter})=>{
         getCourseLevel();
         getUniversities();
     },[])
-    useMemo(()=>{
-        const tempObj={
-            filterApplied:false,
-            course:null,
-            level:null,
-            country:null,
-        }
-        setFilter({...tempObj});
-        setValues({...values,level:'',country:'',selectCourse:'',selectUniversity:""})
-    },[values.courses])
+    // useMemo(()=>{
+    //     const tempObj={
+    //         filterApplied:false,
+    //         course:null,
+    //         level:null,
+    //         country:null,
+    //         filterBy:null,
+    //     }
+    //     setFilter({...tempObj});
+    //     setValues({...values,level:'',country:'',selectCourse:'',selectUniversity:""})
+    // },[values.courses])
     return(
         <div className="homeHeader">
             <div className="image">
@@ -189,6 +192,7 @@ const HomeHeader=({filter,setFilter})=>{
                                         course:null,
                                         level:null,
                                         country:null,
+                                        filterBy:null,
                                     }
                                     setFilter({...tempObj});
                                     setValues({...values,courses:true})
@@ -210,6 +214,7 @@ const HomeHeader=({filter,setFilter})=>{
                                         course:null,
                                         level:null,
                                         country:null,
+                                        filterBy:null,
                                     }
                                     setFilter({...tempObj});
                                     setValues({...values,courses:false})

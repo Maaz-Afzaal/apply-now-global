@@ -14,7 +14,7 @@ import React,{useState} from 'react';
 function App() {
   const [filter,setFilter]=useState({
     filterApplied:false,
-    university:null,
+    filterBy:"",
     course:null,
     level:null,
     country:null,

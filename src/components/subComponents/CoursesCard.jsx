@@ -14,7 +14,7 @@ const CoursesCard=(props)=>{
     }
     return(
         <div className="coursesCard">
-            {props.coursesData.map((item,index)=>{
+            {props.coursesData.length>0 && props.coursesData.map((item,index)=>{
                 return(
                     <>
                         <div className="fullCard">
@@ -30,12 +30,12 @@ const CoursesCard=(props)=>{
                                             {item.courseName}
                                         </div>
                                         <div className="d-flex">
-                                                <Link to="/" style={{textDecoration:"none",color:"black"}}>
+                                                <a href={item.url} target="_blank" style={{textDecoration:"none",color:"black"}}>
                                                 <div className="location d-flex align-items-center pointer">
                                                     <img src={uniLogo} alt="" className="img img-fluid" />
                                                     <span>{item.universityName}</span>
                                                 </div>
-                                                </Link>
+                                                </a>
                                             <div className="location">
                                                 <img src={locationLogo} alt="" className="img img-fluid "/>
                                                 <span>{item.countryName}</span>
@@ -98,6 +98,11 @@ const CoursesCard=(props)=>{
                     </>
                 )
             })}
+            {
+                props.coursesData.length===0 && <>
+                    <h1>No Data to Show</h1>
+                </>
+            }
         </div>
     )
 }

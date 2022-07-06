@@ -80,14 +80,26 @@ const Courses =({filter,setFilter})=>{
     const [loading,setLoading]=useState(true);
     const getCoursesData=async ()=>{
         const {result,error}=await getData("/api/course/requirement/list");
-        const getObj=(image,courseName,universityName,countryName,tutionFee,applicationFee,inTake,duration,ETS,level)=>{
-            return {image,courseName,universityName,countryName,tutionFee,applicationFee,inTake,duration,ETS,level}
+        const getObj=(image,courseName,universityName,countryName,tutionFee,applicationFee,inTake,duration,ETS,department,url,level)=>{
+            return {image,courseName,universityName,countryName,tutionFee,applicationFee,inTake,duration,ETS,department,url,level}
         }
         if(result){
             const tempArray=[];
-            console.log(result);
+            // console.log(result);
             result.body.list.map((item,index)=>{
-                const tempData=getObj(item.universityId.logo,item.coursetId.title,item.universityId.name,item.universityId.city,item.tutionFee,item.applicationFee,item.inTake,item.duration,item.ETS.toString(),item.level)
+                // console.log(item);
+                const tempData=getObj(item.universityId.logo,
+                    item.title,
+                    item.universityId.name,
+                    item.universityId.city,
+                    item.tutionFee,
+                    item.applicationFee,
+                    item.inTake,
+                    item.duration,
+                    item.ETS.toString(),
+                    item.coursetId.title,
+                    item.universityId.website,
+                    item.level)
                 tempArray.push(tempData)
             })
             setCourseData([...tempArray])
@@ -98,17 +110,21 @@ const Courses =({filter,setFilter})=>{
             console.log("course page error is",error)
         }
     }
-    useMemo(()=>{
-        if(filter.filterApplied){
+    useEffect(()=>{
+        
+        if(filter.filterApplied && filter.filterBy==="course"){
             if(filter.course){
                 const tempArray=[];
                 courseData.map((item,index)=>{
-                    if(item.courseName.toLowerCase().includes(filter.course.toLowerCase()) && item.countryName===filter.country && item?.level===filter.level ){
+                    console.log(filter.course.toLowerCase(),"asdasd",item.courseName.toLowerCase())
+                    // if(item.courseName.toLowerCase().includes(filter.course.toLowerCase()) && item.countryName===filter.country && item?.level===filter.level ){
+                        if(item.courseName.toLowerCase().includes(filter.course.toLowerCase()) ){
                         tempArray.push(item)
+                        // console.log("filtered array",filter)
                     }
                 });
                 setFilteredCourseData([...tempArray]);
-
+                console.log(tempArray,"asdasd")
             }
         }
         else{
