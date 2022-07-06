@@ -18,6 +18,7 @@ function App() {
     course:null,
     level:null,
     country:null,
+    department:null,
   })
   return (
     <div className="App ">

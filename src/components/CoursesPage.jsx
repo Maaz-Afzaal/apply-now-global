@@ -127,6 +127,21 @@ const Courses =({filter,setFilter})=>{
                 console.log(tempArray,"asdasd")
             }
         }
+        else if(filter.filterApplied && filter.filterBy==="department"){
+    
+                const tempArray=[];
+                courseData.map((item,index)=>{
+                    console.log(item.department,"asdasd",filter.department);
+                    // if(item.courseName.toLowerCase().includes(filter.course.toLowerCase()) && item.countryName===filter.country && item?.level===filter.level ){
+                        if(item.department.toLowerCase()===filter.department.toLowerCase() ){
+                        tempArray.push(item)
+                        // console.log("filtered array",filter)
+                    }
+                });
+                setFilteredCourseData([...tempArray]);
+                console.log(tempArray,"asdasd")
+
+        }
         else{
             setFilteredCourseData([...courseData])
         }

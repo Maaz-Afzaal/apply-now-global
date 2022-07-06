@@ -19,11 +19,13 @@ import expertChat2 from '../assets/images/home/expertChat2.png';
 import expertBackground from '../assets/images/expertBackground.png';
 import { useEffect } from 'react/cjs/react.development';
 import { getData } from '../utilities';
+import { useHistory } from 'react-router-dom';
 
 
 
 const Home=({filter,setFilter})=>{
     const [loading,setLoading]=useState(true);
+    const history=useHistory();
     const whatToStudyCardImages=[
         computerScienceLogo,businessLogo,socialLogo,scienceLogo,healthLogo,engineeringLogo
     ]
@@ -292,7 +294,19 @@ const Home=({filter,setFilter})=>{
                                             }
                                         })}
                                     </div>
-                                    <div className='viewAll pointer' onClick={()=>{alert("Coming soon.....")}}>
+                                    <div className='viewAll pointer' onClick={()=>{
+                                         const tempObj={
+                                            filterApplied:true,
+                                            course:null,
+                                            level:null,
+                                            country:null,
+                                            filterBy:"department",
+                                            department:item.heading,
+                        
+                                        }
+                                        setFilter({...tempObj});
+                                        history.push("/courses")
+                                    }}>
                                         View All &rarr;
                                     </div>
                                     </div>

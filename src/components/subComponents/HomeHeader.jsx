@@ -31,6 +31,7 @@ const HomeHeader=({filter,setFilter})=>{
                     level:values.level,
                     country:values.country,
                     filterBy:"course",
+                    department:null,
 
                 }
                 setFilter({...tempObj});
@@ -193,6 +194,7 @@ const HomeHeader=({filter,setFilter})=>{
                                         level:null,
                                         country:null,
                                         filterBy:null,
+                                        department:null,
                                     }
                                     setFilter({...tempObj});
                                     setValues({...values,courses:true})
@@ -215,6 +217,7 @@ const HomeHeader=({filter,setFilter})=>{
                                         level:null,
                                         country:null,
                                         filterBy:null,
+                                        department:null,
                                     }
                                     setFilter({...tempObj});
                                     setValues({...values,courses:false})
