@@ -19,49 +19,54 @@
   max-width: 100vw;
   overflow: hidden;
 }
-.gradientButton{
-  background-image: linear-gradient(to right,#77397eff , #eda022ff);
-  border:none;
+
+.gradientButton {
+  background-image: linear-gradient(to right, #77397eff, #eda022ff);
+  border: none;
   border-radius: 4px;
-  color:white;
+  color: white;
   font-weight: 600;
   padding-left: 15px;
   padding-right: 15px;
 }
-.verticalLine{
-  background-color:#e0dfe0ff;
+
+.verticalLine {
+  background-color: #e0dfe0ff;
   min-width: 1px;
   align-self: center;
   // min-height: 70%;
 }
-.blurImage{
-  width:100vw;
-  // filter: blur(5px);
-  filter: brightness(1%);
-  // -webkit-filter: blur(0px);
-  -webkit-filter: brightness(1%);
-}
-.pointer{
+
+// .blurImage {
+//   width: 100vw;
+//   // filter: blur(5px);
+//   filter: brightness(1%);
+//   // -webkit-filter: blur(0px);
+//   -webkit-filter: brightness(1%);
+// }
+
+.pointer {
   cursor: pointer;
 }
 
 .century-font {
   font-family: "CenturyGothic";
- }
- .century-font-bold {
+}
+
+.century-font-bold {
   font-family: "CenturyGothicBold";
- }
- 
+}
+
 @font-face {
   font-family: "CenturyGothic";
   src: local("CenturyGothic"),
-   url("./CenturyGothic.ttf") format("truetype");
+    url("./CenturyGothic.ttf") format("truetype");
   // font-weight: 1000;
-  }
+}
 
-  @font-face {
-    font-family: "CenturyGothicBold";
-    src: local("GothicBold"),
-     url("./GothicBold.TTF") format("truetype");
-    // font-weight: 1000;
-    }
+@font-face {
+  font-family: "CenturyGothicBold";
+  src: local("GothicBold"),
+    url("./GothicBold.TTF") format("truetype");
+  // font-weight: 1000;
+}
