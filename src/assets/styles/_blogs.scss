@@ -1,0 +1,138 @@
+.blog{
+
+    .body{
+        background: #f0efefff;
+        width: 100vw;
+        padding:2vw 5vw;
+        .heading{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            .text{
+                text-align: start;
+                font-size: 48px;
+                line-height: 56px;
+                font-weight: 900;
+
+            }
+            .horizontalLine{
+                height: 4px;
+                width: 2rem;
+                background: #a989b9ff;
+                margin-right: 2px;
+            }
+            .square{
+                height:4px;
+                width: 4px;
+                background: #a989b9ff;
+                margin-left:2px ;
+            }
+        }
+        
+        .blogCard{
+            padding: 0;
+            // max-width: 30%;
+            border-radius: 9px;
+            margin: 2rem 0rem 2rem 0;
+            text-align: start;
+            background: white;
+            box-shadow: 2px 2px 6px rgb(185, 185, 185);
+            .date{
+                margin:1rem;
+                margin-bottom: 0.5rem;
+            }
+            .blogTitle{
+                margin:0 1rem 1rem 1rem;
+                
+                color: rgb(137, 92, 160);
+                font-size: 30px;
+                line-height: 32px;
+                font-weight: 700;
+            }
+            .blogDescription{
+                margin:1rem;
+                margin-top: 0;
+                text-align: justify;
+            }
+            .extra{
+                margin-top: 0;
+                margin:1rem;
+                color:#f6a81bff
+            }
+
+        }
+        .categories{
+            .heading{
+                font-size: 34px;
+                line-height: 48px;
+                font-weight: 600;
+                text-align: start;
+                padding-top:1.3rem ;
+            }
+            .box{
+                border-radius: 6px;
+                box-shadow: 2px 2px 6px rgb(201, 199, 199);
+                padding:2rem;
+                margin-top: 1.5rem;
+                background-color: white;
+                text-align: start;
+                .text{
+                    margin: 1rem 0;
+                }
+                hr{
+                    color: #d5d7d9ff;
+                }
+                .searchBox{
+                    position: relative;
+                    height: 3rem;
+                    
+                    input{
+                        width: 90%;
+                        height: 100%;
+                        border:1px #d5d7d9ff solid;
+                        border-radius: 6px 0px 0 6px;
+                        margin-bottom: 1rem;
+                        font-size: 20px;
+                    }
+                    .searchInputIcon{
+                        position: absolute;
+                        background: #f6a81bff;
+                        left: 89%;
+                        width: 3rem;
+                        display: flex;
+                        
+                        // width: ;
+                        padding-left: 0;
+                        padding:0.5rem ;
+                        top: 0%;
+                        border-radius: 0px 6px 6px 0px;
+                        height: 100%;
+                        .searchInput{
+                            
+                            width: 2rem;
+                            height: 2rem;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+    .pageChange{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background:white;
+        box-shadow: 2px 2px 6px rgb(201, 199, 199);
+        border-radius: 3px;
+        .active{
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 2px;
+            background: #f6a81bff;
+        }
+        .pages{
+            cursor: pointer;
+        }
+    }
+}

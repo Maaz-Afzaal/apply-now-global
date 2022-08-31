@@ -1,0 +1,162 @@
+.courses{
+    .coursesBody{
+        background: #f0efefff;
+        padding:2vw 5vw 3vw 5vw;
+        width: 100vw;
+        .coursesCard{
+            .fullCard{
+                border-radius: 6px;
+                box-shadow: 8px 8px 10px rgb(199, 197, 197);
+                margin-top: 18px;
+                width: 100%;
+                padding:15px;
+                background: white;
+                display: flex;
+                .imageBox{
+                    width: 11%;
+                    align-self: center;
+                    img{
+                        width:'100%';
+                        border-radius: 6px;
+                    }
+                }
+                .restCard{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding:10px;
+                    .top{
+
+                        display: flex;
+                        justify-content: space-between;
+                        .courseName{
+                            text-align: start;
+                            color: #6a2e88ff;
+                            font-weight: 800;
+                            font-size: 16px;
+                            
+                            line-height: 22px;
+                        }
+                        .location{
+                            margin-top: 5px;
+                            img{
+                                width: 20px;
+                                // height: 80%;
+                                align-self: center;
+                                margin-right: 5px;
+                            }
+                            span{
+                                margin-right: 5px;
+                                align-self: center;
+                            }
+                            
+                        }
+                        .blackButton{
+                            background: #2b3b45ff;
+                            border:none;
+                            border-radius: 4px;
+                            color:white;
+                            font-weight: 600;
+                            margin-right: 1rem;
+                            padding-left: 1rem;
+                            padding-right: 1rem;
+                        }
+
+                    }
+                    .bot{
+                        margin-left: 1rem;
+                        margin-right: 1rem;
+                        text-align: start;
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 1rem;
+                        background: #f0efefff;
+                        border-radius: 6px;
+                        
+                    }
+                }
+                
+            }
+            @media screen and (max-width: 680px) {
+                .fullCard{
+                    border-radius: 6px;
+                    box-shadow: 3px 2px 6px rgb(199, 197, 197);
+                    margin-top: 18px;
+                    width: 100%;
+                    padding:15px;
+                    background: white;
+                    display: flex;
+                    flex-direction: column;
+                    .imageBox{
+                        width: 50%;
+                        align-self: center;
+                        img{
+                            width:'100%';
+                            border-radius: 6px;
+                        }
+                    }
+                    .restCard{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        padding:10px;
+                        .top{
+    
+                            display: flex;
+                            justify-content: space-between;
+                            flex-direction: column;
+                            .courseName{
+                                text-align: start;
+                                color: #6a2e88ff;
+                                font-weight: 800;
+                                font-size: 16px;
+                                
+                                line-height: 22px;
+                            }
+                            .location{
+                                margin-top: 5px;
+                                img{
+                                    // width: 20px;
+                                    // height: 80%;
+                                    align-self: center;
+                                    margin-right: 5px;
+                                }
+                                span{
+                                    margin-right: 5px;
+                                    align-self: center;
+                                }
+                                
+                            }
+                            .blackButton{
+                                background: #2b3b45ff;
+                                border:none;
+                                border-radius: 4px;
+                                color:white;
+                                font-weight: 600;
+                                margin-right: 1rem;
+                                padding-left: 1rem;
+                                padding-right: 1rem;
+                            }
+    
+                        }
+                        .bot{
+                            margin-left: 1rem;
+                            margin-right: 1rem;
+                            text-align: start;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            padding: 1rem;
+                            background: #f0efefff;
+                            border-radius: 6px;
+                            
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
