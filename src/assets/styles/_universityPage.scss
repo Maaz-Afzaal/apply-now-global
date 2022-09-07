@@ -1,0 +1,126 @@
+.universityPage {
+    .body {
+        width: 100vw;
+        background: #f0efefff;
+
+        .header {
+            .headerImage {
+                // filter: blur(5px);
+                // filter: brightness(30%);
+                // -webkit-filter: blur(5px);
+                // -webkit-filter: brightness(30%);
+                width: 100vw;
+                position: relative;
+            }
+
+
+            .universityHeading {
+                position: relative;
+                z-index: 1;
+                width: 80vw;
+                left: 10vw;
+                top: -7rem;
+                background-color: white;
+                padding: 2rem 1rem 2rem 0.5rem;
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+                box-shadow: 8px 8px 10px rgb(196, 196, 196);
+
+                .uniLogoImage {
+                    width: 20vw;
+                }
+
+                .uni {
+                    margin-left: 2vw;
+                    width: 45vw;
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    text-align: start;
+
+                    .name {
+                        font-size: 40px;
+                        font-weight: 700;
+                        line-height: 44px;
+
+                    }
+
+                    .flag {
+                        // margin-top: auto;
+                        max-width: 4rem;
+                    }
+                }
+
+                .buttons {
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    max-width: 10vw;
+                    margin-right: 3rem;
+
+                    button {
+                        font-weight: 600;
+                        color: white;
+                        width: 100%;
+                    }
+
+                    .normal {
+                        border: none;
+
+                        border-radius: 3px;
+                        background-color: #2b3b45ff;
+                    }
+
+                    .gradientButton {
+                        margin-top: 2px;
+                    }
+                }
+            }
+
+            @media screen and (max-width:680px) {
+                .universityHeading {
+
+                    .uniLogoImage {
+                        width: 70vw;
+                    }
+
+                    .uni {
+                        // margin-left: 2vw;
+                        text-align: start;
+
+
+
+                        .flag {
+                            margin-top: 1rem;
+                            max-width: 4rem;
+                        }
+                    }
+
+                    .buttons {
+                        display: flex;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        max-width: 100%;
+
+                        button {
+                            font-weight: 600;
+                            color: white;
+                            width: 100%;
+                        }
+
+                        .gradientButton {
+                            margin-top: 1rem;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .body {
+            // width: 100%;
+            text-align: start;
+        }
+    }
+}

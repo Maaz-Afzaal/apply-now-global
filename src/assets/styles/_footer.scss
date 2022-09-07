@@ -1,0 +1,55 @@
+.footer{
+    .top{
+        background-color: #1d202cff;
+        padding: 1.5rem 3rem;
+        color: white;
+        font-size: 14px;
+        .bold{
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        .h3{
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 32px;
+        }
+        Link{
+            color:#4d9ed6ff;
+        }
+        .col-3{
+            text-align: start;
+        }
+        .social{
+            max-width: 30px;
+            max-height: 30px;
+            margin:0.3rem 0.5rem 0.3rem 0rem;
+           
+        }
+        .line{
+            height: 0.1rem;
+            align-self: center;
+            background-color: white;
+        }
+        .w-85{
+            max-width: 85%;
+        }
+    
+    }
+    .bot{
+        background-color: #1d202cff;
+        display: flex;
+        color: white;
+        padding: 1.5rem 3rem;
+        justify-content: space-between;
+        .col-3{
+            text-align: start;
+        }
+        .verticalLine{
+            width: 1px;
+            margin: 0px 10px;
+            background-color: white;
+            height: 90%;
+        }
+    }
+}

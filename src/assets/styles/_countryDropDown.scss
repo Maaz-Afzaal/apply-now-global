@@ -1,0 +1,35 @@
+.countryDropDown{
+    .header{
+        background: none;
+        border:none;
+        font-size: 16px;
+        color: #6a2d87ff;
+        padding: 0;
+        
+    }
+    .header:hover{
+        color: black;
+        background: none;
+    }
+    .body{
+    //     background:transparent;
+    //     border: none;
+        opacity: 0.8;
+    //     color: white;
+        .text{
+            color: white;
+        }
+        .text:hover{
+            color: black;
+        }
+        .bold{
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            text-decoration: underline;
+        }
+        .bold:hover{
+            color: black;
+        }
+    }
+}

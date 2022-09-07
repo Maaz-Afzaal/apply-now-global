@@ -1,0 +1,78 @@
+.countryPage{
+    .header{
+        .content{
+            position: relative;
+            .image{
+                img{
+                    width: 100vw;
+                }
+            }
+            .text{
+                position: absolute;
+                top:47%;
+                left:5vw;
+                font-size: 48px;
+                font-weight: 1000;
+                color: white;
+            }
+        }
+    }
+    .countryPageBody{
+        .tabs{
+            background: #7a4394ff;
+            padding: 20px 5vw;
+            display: flex; justify-content: space-between;
+            div{
+                background: white;
+                border-radius: 4px;
+                padding: 10px 0;
+            }
+            .active{
+                background: #f6a81bff;
+                color: white;
+                font-weight: 600;
+            }
+        }
+        .restBody{
+            margin: 2vw 5vw 5vw; 
+            padding:2vw;
+            background: #f3f6f9ff;
+            box-shadow: 5px 5px 10px rgb(175, 174, 174);
+            text-align: start;
+            border-radius: 6px;
+            .heading{
+                font-size: 38px;
+                line-height: 44px;
+                font-weight: 800;
+            }
+            .content{
+                .head{
+                    color: #83529cff;
+                    margin: 0.5rem 0;
+                    font-size: 20px;
+                    line-height: 24px;
+                    font-weight: 800;
+                }
+                .para{
+                    margin: 0.5rem 0;
+                }
+                ul {
+                    list-style: none; /* Remove default bullets */
+                padding-left: 1rem;
+                margin: 1rem 0;
+
+                }
+                ul li::before {
+            
+                content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+                color: #f6a81bff; /* Change the color */
+                font-weight: bold; /* If you want it to be bold */
+                display: inline-block; /* Needed to add space between the bullet and the text */
+                width: 1em; /* Also needed for space (tweak if needed) */
+                margin-left: -1em; /* Also needed for space (tweak if needed) */
+                }
+            }
+
+        }
+    }
+}

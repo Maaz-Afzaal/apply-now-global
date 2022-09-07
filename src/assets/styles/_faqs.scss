@@ -1,0 +1,139 @@
+.faq{
+    .body{
+        // width: 100vw;
+        background: #f0efefff;
+        .header{
+            position: relative;
+            width: 100vw;
+            text-align: start;
+            .headerImage{
+                // filter: blur(5px);
+                // filter: brightness(30%);
+                // -webkit-filter: blur(5px);
+                // -webkit-filter: brightness(30%);
+                max-width: 100%;
+                @media (max-width:768px) {
+                    max-width: unset;
+                    height: 275px !important;
+                    img{
+                    
+                        height: 100%;
+                        object-fit: fill;
+                    }
+                }
+
+            }
+            .content{
+                position: absolute;
+                // z-index: 1;
+                color: white;
+                top: 49%;
+                left: 5%;
+                right: 10%;
+                font-weight: 600;
+                @media (max-width:768px) {
+                    top: 10%;
+                }
+                .headerTextBold{
+                    font-size: 50px;
+                line-height: 60px;
+                font-weight: 1000;
+                }
+                .horizontalLine{
+                    height: 5px;
+                    width: 4rem;
+                    background-color: #f5a71eff;
+                    // margin-right: 0.5rem;
+                    margin:0.5rem 0.5rem 1rem 0;
+                }
+                .square{
+                    height: 5px;
+                    width: 5px;
+                    margin:0.5rem 0rem 1rem 0.5rem;
+                    background-color: #f5a71eff;
+                }
+            }
+
+        }
+        .body{
+            background: #f0efefff;
+            padding: 5vw;
+            text-align: start;
+
+            
+            .categories{
+                background: #6a2e88ff;
+                padding: 1rem 1rem 6rem 1rem;
+                border-radius: 5px;
+                height: fit-content;
+                .box{
+                    padding: 0rem 1rem;
+                    display: flex;
+                    justify-content: space-between;
+                    margin:1rem;
+                    border-radius: 2px;
+                    padding: 1rem;
+                    background: white;
+                    .text{
+                        font-weight: 600;
+                    }
+                    .arrow{
+                        background: #6a2e88ff;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: white;
+                        font-weight: 600;
+                        width: 2rem;
+                        height: 2rem;
+                        .rotateBack{
+                            transform: rotate(90deg);
+                        }
+                        .rotateUp{
+                            transform: rotate(-90deg);
+                        }
+                    }
+                }
+            }
+            .questions{
+                background: white;
+                padding:2rem 3rem;
+                border-radius: 5px;
+                .questionBox{
+                    // background: white;
+                    .questionBox1{
+                        margin-bottom: 2rem;
+                        padding:2rem;
+                        border-radius: 3px;
+                        background: #f0efefff;
+                        .question{
+                            font-weight: 600;
+                            display: flex;
+                            justify-content: space-between;
+                            .circle{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                background: #6a2e88ff;
+                                border-radius: 50%;
+                                height: 1.5rem;
+                                width: 1.5rem;
+                                // color: white;
+                                // font-size: 20px;
+                                padding: 0;
+                                .symbol{
+                                    color: white;
+                                }
+                            }
+                        }
+                        .answer{
+                            margin:1rem 0;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
